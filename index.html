@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -22,23 +22,23 @@
     var chairGalleries = {
       'Preta': {
         all: [
-         'cadeira_preta_1.webp',
-          'cadeira_2.webp',
-          'cadeira_3.webp',
-          'cadeira_4.webp',
-          'cadeira_5.webp',
-          'cadeira_6.webp',
-          'cadeira_7.webp',
-          'cadeira_8.webp',
-          'cadeira_9.webp',
-          'cadeira_10.webp',
-          'cadeira_11.webp'
+          '/netlify/cadeira_1.webp',
+          '/netlify/cadeira_2.webp',
+          '/netlify/cadeira_3.webp',
+          '/netlify/cadeira_4.webp',
+          '/netlify/cadeira_5.webp',
+          '/netlify/cadeira_6.webp',
+          '/netlify/cadeira_7.webp',
+          '/netlify/cadeira_8.webp',
+          '/netlify/cadeira_9.webp',
+          '/netlify/cadeira_10.webp',
+          '/netlify/cadeira_11.webp'
         ],
         remaining: [
-          'cadeira_8.webp',
-          'cadeira_9.webp',
-          'cadeira_10.webp',
-          'cadeira_11.webp'
+          '/netlify/cadeira_8.webp',
+          '/netlify/cadeira_9.webp',
+          '/netlify/cadeira_10.webp',
+          '/netlify/cadeira_11.webp'
         ],
         alts: [
           'Foto 1 - Cadeira Gamer Dunamis Preta Marqs Home',
@@ -53,23 +53,23 @@
       },
       'Vermelha': {
         all: [
-          'cadeira_vermelha_1.webp',
-          'cadeira_vermelha_2.webp',
-          'cadeira_vermelha_3.webp',
-          'cadeira_vermelha_4.webp',
-          'cadeira_vermelha_5.webp',
-          'cadeira_vermelha_6.webp',
-          'cadeira_vermelha_7.webp',
-          'cadeira_vermelha_8.webp',
-          'cadeira_vermelha_9.webp',
-          'cadeira_vermelha_10.webp',
-          'cadeira_vermelha_11.webp'
+          '/netlify/cadeira_vermelha_1.webp',
+          '/netlify/cadeira_vermelha_2.webp',
+          '/netlify/cadeira_vermelha_3.webp',
+          '/netlify/cadeira_vermelha_4.webp',
+          '/netlify/cadeira_vermelha_5.webp',
+          '/netlify/cadeira_vermelha_6.webp',
+          '/netlify/cadeira_vermelha_7.webp',
+          '/netlify/cadeira_vermelha_8.webp',
+          '/netlify/cadeira_vermelha_9.webp',
+          '/netlify/cadeira_vermelha_10.webp',
+          '/netlify/cadeira_vermelha_11.webp'
         ],
         remaining: [
-          'cadeira_vermelha_8.webp',
-          'cadeira_vermelha_9.webp',
-          'cadeira_vermelha_10.webp',
-          'cadeira_vermelha_11.webp'
+          '/netlify/cadeira_vermelha_8.webp',
+          '/netlify/cadeira_vermelha_9.webp',
+          '/netlify/cadeira_vermelha_10.webp',
+          '/netlify/cadeira_vermelha_11.webp'
         ],
         alts: [
           'Foto 1 - Cadeira Gamer Dunamis Vermelha Marqs Home',
@@ -164,7 +164,7 @@
       var mainImg = document.getElementById('mainGalleryImg');
       if (!mainImg) return 0;
       var src = mainImg.src.split('/').pop().split('?')[0];
-      var idx = allGalleryImages.indexOf(src);
+      var idx = allGalleryImages.findIndex(function(path) { return path.split('/').pop().split('?')[0] === src; });
       return idx !== -1 ? idx : 0;
     }
 
@@ -4352,7 +4352,7 @@
 
         <!-- Logo Oficial Mercado Livre (Clássico com Oval e Aperto de Mãos) -->
         <a href="#" class="ml-logo-link" style="text-decoration:none;" title="Mercado Livre">
-          <img src="ml_logo.png" alt="Mercado Livre" class="ml-logo-img" />
+          <img src="/netlify/ml_logo.png" alt="Mercado Livre" class="ml-logo-img" />
         </a>
 
         <!-- Ações do Topo Mobile: Lupa e Botão Preto GANHOS 5% -->
@@ -4455,43 +4455,43 @@
           <!-- Miniaturas Verticais (8 Quadrados no estilo oficial Mercado Livre) -->
           <div class="ml-thumbs-vertical">
             <!-- 1: Imagem Principal -->
-            <div class="ml-thumb-item active" onmouseenter="showGalleryImage('cadeira_1.webp', this)" onclick="showGalleryImage('cadeira_1.webp', this)">
-              <img src="cadeira_1.webp" alt="Foto 1 - Cadeira Gamer Dunamis Preta Marqs Home" />
+            <div class="ml-thumb-item active" onmouseenter="showGalleryImage('/netlify/cadeira_1.webp', this)" onclick="showGalleryImage('/netlify/cadeira_1.webp', this)">
+              <img src="/netlify/cadeira_1.webp" alt="Foto 1 - Cadeira Gamer Dunamis Preta Marqs Home" />
             </div>
 
             <!-- 2: Foto 2 -->
-            <div class="ml-thumb-item" onmouseenter="showGalleryImage('cadeira_2.webp', this)" onclick="showGalleryImage('cadeira_2.webp', this)">
-              <img src="cadeira_2.webp" alt="Foto 2 - Cadeira Dunamis Benefícios e Recursos" />
+            <div class="ml-thumb-item" onmouseenter="showGalleryImage('/netlify/cadeira_2.webp', this)" onclick="showGalleryImage('/netlify/cadeira_2.webp', this)">
+              <img src="/netlify/cadeira_2.webp" alt="Foto 2 - Cadeira Dunamis Benefícios e Recursos" />
             </div>
 
             <!-- 3: Foto 3 -->
-            <div class="ml-thumb-item" onmouseenter="showGalleryImage('cadeira_3.webp', this)" onclick="showGalleryImage('cadeira_3.webp', this)">
-              <img src="cadeira_3.webp" alt="Foto 3 - Medidas e Capacidade 180kg" />
+            <div class="ml-thumb-item" onmouseenter="showGalleryImage('/netlify/cadeira_3.webp', this)" onclick="showGalleryImage('/netlify/cadeira_3.webp', this)">
+              <img src="/netlify/cadeira_3.webp" alt="Foto 3 - Medidas e Capacidade 180kg" />
             </div>
 
             <!-- 4: Foto 4 -->
-            <div class="ml-thumb-item" onmouseenter="showGalleryImage('cadeira_4.webp', this)" onclick="showGalleryImage('cadeira_4.webp', this)">
-              <img src="cadeira_4.webp" alt="Foto 4 - Inclinação até 130 Graus" />
+            <div class="ml-thumb-item" onmouseenter="showGalleryImage('/netlify/cadeira_4.webp', this)" onclick="showGalleryImage('/netlify/cadeira_4.webp', this)">
+              <img src="/netlify/cadeira_4.webp" alt="Foto 4 - Inclinação até 130 Graus" />
             </div>
 
             <!-- 5: Foto 5 -->
-            <div class="ml-thumb-item" onmouseenter="showGalleryImage('cadeira_5.webp', this)" onclick="showGalleryImage('cadeira_5.webp', this)">
-              <img src="cadeira_5.webp" alt="Foto 5 - Setup Gamer Dunamis Marqs" />
+            <div class="ml-thumb-item" onmouseenter="showGalleryImage('/netlify/cadeira_5.webp', this)" onclick="showGalleryImage('/netlify/cadeira_5.webp', this)">
+              <img src="/netlify/cadeira_5.webp" alt="Foto 5 - Setup Gamer Dunamis Marqs" />
             </div>
 
             <!-- 6: Foto 6 -->
-            <div class="ml-thumb-item" onmouseenter="showGalleryImage('cadeira_6.webp', this)" onclick="showGalleryImage('cadeira_6.webp', this)">
-              <img src="cadeira_6.webp" alt="Foto 6 - Apoio para Pés e Reclinação" />
+            <div class="ml-thumb-item" onmouseenter="showGalleryImage('/netlify/cadeira_6.webp', this)" onclick="showGalleryImage('/netlify/cadeira_6.webp', this)">
+              <img src="/netlify/cadeira_6.webp" alt="Foto 6 - Apoio para Pés e Reclinação" />
             </div>
 
             <!-- 7: Foto 7 -->
-            <div class="ml-thumb-item" onmouseenter="showGalleryImage('cadeira_7.webp', this)" onclick="showGalleryImage('cadeira_7.webp', this)">
-              <img src="cadeira_7.webp" alt="Foto 7 - Design Traseiro Ergonômico" />
+            <div class="ml-thumb-item" onmouseenter="showGalleryImage('/netlify/cadeira_7.webp', this)" onclick="showGalleryImage('/netlify/cadeira_7.webp', this)">
+              <img src="/netlify/cadeira_7.webp" alt="Foto 7 - Design Traseiro Ergonômico" />
             </div>
 
             <!-- 8: Oitavo Quadrado com todas as fotos restantes agrupadas -->
             <div class="ml-thumb-item ml-thumb-more" onmouseenter="showRemainingGallery(this)" onclick="openGalleryModal(7)" title="Clique para abrir a galeria de fotos">
-              <img src="cadeira_8.webp" alt="Mais fotos da Cadeira Dunamis" />
+              <img src="/netlify/cadeira_8.webp" alt="Mais fotos da Cadeira Dunamis" />
               <div class="ml-thumb-more-overlay">+4</div>
             </div>
           </div>
@@ -4499,7 +4499,7 @@
           <!-- Quadro Principal Mercado Livre: 1:1 Quadrado com Zoom Interativo -->
           <div class="ml-main-image-frame" id="mainGalleryFrame" onclick="openGalleryModal(getCurrentGalleryIndex())" onmousemove="handleGalleryZoom(event)" onmouseleave="resetGalleryZoom()">
             <span class="ml-mobile-slide-counter" id="mobileSlideCounter">1 / 11</span>
-            <img id="mainGalleryImg" src="cadeira_1.webp" alt="" />
+            <img id="mainGalleryImg" src="/netlify/cadeira_1.webp" alt="" />
           </div>
         </div>
 
@@ -4585,7 +4585,7 @@
             <div class="ml-m-photo-cards-grid">
               <!-- Card 1: Com ícone de Play de vídeo -->
               <div class="ml-m-photo-card" onclick="openReviewsModal()">
-                <img src="depo_cadeira_2.webp" alt="Foto cliente avaliação cadeira gamer setup" />
+                <img src="/netlify/depo_cadeira_2.webp" alt="Foto cliente avaliação cadeira gamer setup" />
                 <div class="ml-m-play-btn-overlay">
                   <i class="fa-solid fa-play"></i>
                 </div>
@@ -4593,7 +4593,7 @@
 
               <!-- Card 2: Com overlay +579 fotos -->
               <div class="ml-m-photo-card" onclick="openReviewsModal()">
-                <img src="depo_cadeira_4.webp" alt="Foto cliente avaliação Cadeira Dunamis" />
+                <img src="/netlify/depo_cadeira_4.webp" alt="Foto cliente avaliação Cadeira Dunamis" />
                 <div class="ml-m-count-dark-overlay">
                   +579
                 </div>
@@ -4868,11 +4868,11 @@
           </div>
 
           <div class="ml-color-thumbs-row">
-            <button type="button" class="ml-color-thumb-btn selected" id="colorPretaBtn" onclick="selectChairColor('Preta', 'color_preta.png', this)" title="Cor: Preta">
-              <img src="color_preta.png" alt="Cadeira Gamer Dunamis Preta" />
+            <button type="button" class="ml-color-thumb-btn selected" id="colorPretaBtn" onclick="selectChairColor('Preta', '/netlify/color_preta.png', this)" title="Cor: Preta">
+              <img src="/netlify/color_preta.png" alt="Cadeira Gamer Dunamis Preta" />
             </button>
-            <button type="button" class="ml-color-thumb-btn" id="colorVermelhaBtn" onclick="selectChairColor('Vermelha', 'color_vermelha.png', this)" title="Cor: Vermelha">
-              <img src="color_vermelha.png" alt="Cadeira Gamer Dunamis Vermelha" />
+            <button type="button" class="ml-color-thumb-btn" id="colorVermelhaBtn" onclick="selectChairColor('Vermelha', '/netlify/color_vermelha.png', this)" title="Cor: Vermelha">
+              <img src="/netlify/color_vermelha.png" alt="Cadeira Gamer Dunamis Vermelha" />
             </button>
           </div>
 
@@ -4972,14 +4972,14 @@
         <div class="ml-seller-box ml-seller-platinum" id="vendedor">
           <!-- Banner Superior Verde com Logo Dourada e Nome da Loja -->
           <div class="ml-seller-banner-wrap">
-            <img src="seller_banner.png" alt="Banner Oficial Casa do Noel" class="ml-seller-banner-img" />
+            <img src="/netlify/seller_banner.png" alt="Banner Oficial Casa do Noel" class="ml-seller-banner-img" />
           </div>
 
           <!-- Conteúdo Principal do Card da Loja Oficial -->
           <div class="ml-seller-card-body">
             <!-- Avatar Circular Sobreposto com Gorrinho de Papai Noel -->
             <div class="ml-seller-avatar-overlap">
-              <img src="seller_avatar.png" alt="Avatar Loja Oficial Casa do Noel" class="ml-seller-avatar-img" />
+              <img src="/netlify/seller_avatar.png" alt="Avatar Loja Oficial Casa do Noel" class="ml-seller-avatar-img" />
             </div>
 
             <!-- Nome da Loja Oficial e Botão Seguir -->
@@ -5110,63 +5110,63 @@
             </button>
             <div class="ml-op-photos-carousel" id="reviewsPhotoCarousel">
               <div class="ml-op-thumb-card" onclick="scrollToReview(1)">
-                <img src="depo_cadeira_1.webp" alt="Foto avaliação presente Dia dos Pais Cadeira Dunamis" />
+                <img src="/netlify/depo_cadeira_1.webp" alt="Foto avaliação presente Dia dos Pais Cadeira Dunamis" />
                 <div class="ml-op-thumb-badge">5 ★</div>
               </div>
               <div class="ml-op-thumb-card" onclick="scrollToReview(2)">
-                <img src="depo_cadeira_2.webp" alt="Foto avaliação setup gamer com iluminação led" />
+                <img src="/netlify/depo_cadeira_2.webp" alt="Foto avaliação setup gamer com iluminação led" />
                 <div class="ml-op-thumb-badge">5 ★</div>
               </div>
               <div class="ml-op-thumb-card" onclick="scrollToReview(3)">
-                <img src="depo_cadeira_3.webp" alt="Foto avaliação Cadeira Dunamis montada acabamento" />
+                <img src="/netlify/depo_cadeira_3.webp" alt="Foto avaliação Cadeira Dunamis montada acabamento" />
                 <div class="ml-op-thumb-badge">5 ★</div>
               </div>
               <div class="ml-op-thumb-card" onclick="scrollToReview(4)">
-                <img src="depo_cadeira_4.webp" alt="Foto avaliação gato na cadeira gamer preta" />
+                <img src="/netlify/depo_cadeira_4.webp" alt="Foto avaliação gato na cadeira gamer preta" />
                 <div class="ml-op-thumb-badge">5 ★</div>
               </div>
               <div class="ml-op-thumb-card" onclick="scrollToReview(5)">
-                <img src="depo_cadeira_5.webp" alt="Foto avaliação conforto aprovado pelos pets" />
+                <img src="/netlify/depo_cadeira_5.webp" alt="Foto avaliação conforto aprovado pelos pets" />
                 <div class="ml-op-thumb-badge">5 ★</div>
               </div>
               <div class="ml-op-thumb-card" onclick="scrollToReview(6)">
-                <img src="depo_cadeira_6.webp" alt="Foto avaliação entrega caixa lacrada Dunamis" />
+                <img src="/netlify/depo_cadeira_6.webp" alt="Foto avaliação entrega caixa lacrada Dunamis" />
                 <div class="ml-op-thumb-badge">5 ★</div>
               </div>
               <div class="ml-op-thumb-card" onclick="scrollToReview(7)">
-                <img src="depo_cadeira_7.webp" alt="Foto avaliação gatinho dormindo no estofado" />
+                <img src="/netlify/depo_cadeira_7.webp" alt="Foto avaliação gatinho dormindo no estofado" />
                 <div class="ml-op-thumb-badge">5 ★</div>
               </div>
               <div class="ml-op-thumb-card" onclick="scrollToReview(8)">
-                <img src="depo_cadeira_8.webp" alt="Foto avaliação reclinação e apoio para pés" />
+                <img src="/netlify/depo_cadeira_8.webp" alt="Foto avaliação reclinação e apoio para pés" />
                 <div class="ml-op-thumb-badge">5 ★</div>
               </div>
               <div class="ml-op-thumb-card" onclick="scrollToReview(9)">
-                <img src="depo_cadeira_9.webp" alt="Foto avaliação vista traseira suporte lombar" />
+                <img src="/netlify/depo_cadeira_9.webp" alt="Foto avaliação vista traseira suporte lombar" />
                 <div class="ml-op-thumb-badge">5 ★</div>
               </div>
               <div class="ml-op-thumb-card" onclick="scrollToReview(10)">
-                <img src="depo_cadeira_10.webp" alt="Foto avaliação cadeira montada vista frontal" />
+                <img src="/netlify/depo_cadeira_10.webp" alt="Foto avaliação cadeira montada vista frontal" />
                 <div class="ml-op-thumb-badge">5 ★</div>
               </div>
               <div class="ml-op-thumb-card" onclick="scrollToReview(1)">
-                <img src="depo_cadeira_11.webp" alt="Foto avaliação acabamento e almofadas inclusas" />
+                <img src="/netlify/depo_cadeira_11.webp" alt="Foto avaliação acabamento e almofadas inclusas" />
                 <div class="ml-op-thumb-badge">5 ★</div>
               </div>
               <div class="ml-op-thumb-card" onclick="scrollToReview(2)">
-                <img src="depo_cadeira_12.webp" alt="Foto avaliação cadeira montada na sala" />
+                <img src="/netlify/depo_cadeira_12.webp" alt="Foto avaliação cadeira montada na sala" />
                 <div class="ml-op-thumb-badge">5 ★</div>
               </div>
               <div class="ml-op-thumb-card" onclick="scrollToReview(3)">
-                <img src="depo_cadeira_13.webp" alt="Foto avaliação estrutura traseira reforçada" />
+                <img src="/netlify/depo_cadeira_13.webp" alt="Foto avaliação estrutura traseira reforçada" />
                 <div class="ml-op-thumb-badge">5 ★</div>
               </div>
               <div class="ml-op-thumb-card" onclick="scrollToReview(4)">
-                <img src="depo_cadeira_14.jpg" alt="Foto avaliação estofado macio e apoio retrátil" />
+                <img src="/netlify/depo_cadeira_14.jpg" alt="Foto avaliação estofado macio e apoio retrátil" />
                 <div class="ml-op-thumb-badge">5 ★</div>
               </div>
               <div class="ml-op-thumb-card" onclick="scrollToReview(5)">
-                <img src="depo_cadeira_15.jpg" alt="Foto avaliação cadeira na mesa de trabalho home office" />
+                <img src="/netlify/depo_cadeira_15.jpg" alt="Foto avaliação cadeira na mesa de trabalho home office" />
                 <div class="ml-op-thumb-badge">5 ★</div>
               </div>
             </div>
@@ -5205,7 +5205,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 2 semanas</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="depo_cadeira_8.webp" alt="Foto cliente cadeira Dunamis montada no escritório" />
+                <img src="/netlify/depo_cadeira_8.webp" alt="Foto cliente cadeira Dunamis montada no escritório" />
               </div>
               <div class="ml-single-review-text">
                 Simplesmente sensacional! Montei em menos de 30 minutos, o couro sintético é muito macio e o apoio lombar encaixa perfeitamente na coluna. Depois de horas trabalhando não sinto mais dor nas costas. O apoio de pés retrátil é um luxo! Chegou super rápido e muito bem embalado. Recomendo de olhos fechados! <a href="javascript:void(0)" class="saiba-mais-link">Saiba mais</a>
@@ -5225,7 +5225,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 1 mês</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="depo_cadeira_3.webp" alt="Foto cliente cadeira Dunamis reclinada" />
+                <img src="/netlify/depo_cadeira_3.webp" alt="Foto cliente cadeira Dunamis reclinada" />
               </div>
               <div class="ml-single-review-text">
                 Comprei a cadeira Preta e valeu cada centavo! A estrutura é muito firme, suporta bem meu peso (90kg) sem nenhuma folga. O pistão a gás classe 4 tem excelente qualidade. As almofadas que vieram junto são um diferencial absurdo pelo preço. Podem comprar sem medo!
@@ -5245,7 +5245,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 3 semanas</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="depo_cadeira_6.webp" alt="Foto cliente cadeira Dunamis apoio de pés" />
+                <img src="/netlify/depo_cadeira_6.webp" alt="Foto cliente cadeira Dunamis apoio de pés" />
               </div>
               <div class="ml-single-review-text">
                 Top demais! Estava ansiosa pra receber e superou minhas expectativas. Uso horas seguidas no computador e não sinto cansaço. O reclinável até 130° é incrível, dá pra descansar de verdade. A cadeira veio na caixa lacrada da Marqs Home, muito bem protegida com isopor. <a href="javascript:void(0)" class="saiba-mais-link">Saiba mais</a>
@@ -5322,7 +5322,7 @@
       <div class="ml-modal-body">
         <!-- Resumo do Produto Selecionado -->
         <div class="ml-checkout-summary">
-          <img class="ml-checkout-thumb" id="chkThumb" src="color_preta.png" alt="Foto do produto" />
+          <img class="ml-checkout-thumb" id="chkThumb" src="/netlify/color_preta.png" alt="Foto do produto" />
           <div class="ml-chk-info">
             <h4 id="chkTitle">Cadeira De Escritorio Gamer Ergonômica Dunamis Preta Marqs Home Reclinável 180kg Resistente Giratória Confortavel Computador</h4>
             <p id="chkDesc">Dunamis Preta Reclinável 180kg</p>
@@ -5449,7 +5449,7 @@
 
     <!-- Container da Imagem Central -->
     <div class="ml-lightbox-content" onclick="event.stopPropagation()">
-      <img id="mlLightboxImg" src="cadeira_8.webp" alt="Visualização ampliada do produto" />
+      <img id="mlLightboxImg" src="/netlify/cadeira_8.webp" alt="Visualização ampliada do produto" />
     </div>
 
     <!-- Seta Direita -->
@@ -5491,7 +5491,7 @@
       price: 249.99,
       oldPrice: 499.90,
       title: 'Cadeira De Escritorio Gamer Ergonômica Dunamis Preta Marqs Home Reclinável 180kg Resistente Giratória Confortavel Computador',
-      image: 'color_preta.png'
+      image: '/netlify/color_preta.png'
     };
 
     // Função para Selecionar a Cor da Cadeira
@@ -5511,7 +5511,7 @@
       selectedTree.price = priceInfo.price;
       selectedTree.oldPrice = priceInfo.oldPrice;
       selectedTree.title = `Cadeira De Escritorio Gamer Ergonômica Dunamis ${colorName} Marqs Home Reclinável 180kg Resistente Giratória Confortavel Computador`;
-      selectedTree.image = colorImg || (colorName === 'Vermelha' ? 'color_vermelha.png' : 'color_preta.png');
+      selectedTree.image = colorImg || (colorName === 'Vermelha' ? '/netlify/color_vermelha.png' : '/netlify/color_preta.png');
       
       const titleEl = document.getElementById('buyBoxTitle');
       if (titleEl) titleEl.textContent = selectedTree.title;
@@ -5543,7 +5543,7 @@
       if (chkPriceEl) chkPriceEl.textContent = `R$ ${priceInfo.price.toFixed(2).replace('.', ',')}`;
 
       const chkThumbEl = document.getElementById('chkThumb');
-      if (chkThumbEl) chkThumbEl.src = (colorName === 'Vermelha' ? 'cadeira_vermelha_1.webp' : 'cadeira_1.webp');
+      if (chkThumbEl) chkThumbEl.src = (colorName === 'Vermelha' ? '/netlify/cadeira_vermelha_1.webp' : '/netlify/cadeira_1.webp');
 
       // Troca todas as fotos da galeria para a cor selecionada (Vermelha ou Preta)
       if (typeof updateGalleryForColor === 'function') {
@@ -5591,7 +5591,7 @@
     function openCheckout(size, price, title, image) {
       document.getElementById('chkTitle').textContent = title;
       document.getElementById('chkPrice').textContent = `R$ ${price.toFixed(2).replace('.', ',')}`;
-      document.getElementById('chkThumb').src = (selectedTree.color === 'Vermelha' ? 'cadeira_vermelha_1.webp' : (image || 'cadeira_1.webp'));
+      document.getElementById('chkThumb').src = (selectedTree.color === 'Vermelha' ? '/netlify/cadeira_vermelha_1.webp' : (image || '/netlify/cadeira_1.webp'));
 
       document.getElementById('paymentStatus')?.remove();
       // Volta para a etapa 1 de dados
@@ -6181,63 +6181,63 @@
               </button>
               <div class="ml-op-photos-carousel" id="modalReviewsCarousel">
                 <div class="ml-op-thumb-card" onclick="scrollModalToReview(1)">
-                  <img src="depo_cadeira_1.webp" alt="Foto avaliação presente Dia dos Pais Cadeira Dunamis" />
+                  <img src="/netlify/depo_cadeira_1.webp" alt="Foto avaliação presente Dia dos Pais Cadeira Dunamis" />
                   <div class="ml-op-thumb-badge">5 ★</div>
                 </div>
                 <div class="ml-op-thumb-card" onclick="scrollModalToReview(2)">
-                  <img src="depo_cadeira_2.webp" alt="Foto avaliação setup gamer com iluminação led" />
+                  <img src="/netlify/depo_cadeira_2.webp" alt="Foto avaliação setup gamer com iluminação led" />
                   <div class="ml-op-thumb-badge">5 ★</div>
                 </div>
                 <div class="ml-op-thumb-card" onclick="scrollModalToReview(3)">
-                  <img src="depo_cadeira_3.webp" alt="Foto avaliação Cadeira Dunamis montada acabamento" />
+                  <img src="/netlify/depo_cadeira_3.webp" alt="Foto avaliação Cadeira Dunamis montada acabamento" />
                   <div class="ml-op-thumb-badge">5 ★</div>
                 </div>
                 <div class="ml-op-thumb-card" onclick="scrollModalToReview(4)">
-                  <img src="depo_cadeira_4.webp" alt="Foto avaliação gato na cadeira gamer preta" />
+                  <img src="/netlify/depo_cadeira_4.webp" alt="Foto avaliação gato na cadeira gamer preta" />
                   <div class="ml-op-thumb-badge">5 ★</div>
                 </div>
                 <div class="ml-op-thumb-card" onclick="scrollModalToReview(5)">
-                  <img src="depo_cadeira_5.webp" alt="Foto avaliação conforto aprovado pelos pets" />
+                  <img src="/netlify/depo_cadeira_5.webp" alt="Foto avaliação conforto aprovado pelos pets" />
                   <div class="ml-op-thumb-badge">5 ★</div>
                 </div>
                 <div class="ml-op-thumb-card" onclick="scrollModalToReview(6)">
-                  <img src="depo_cadeira_6.webp" alt="Foto avaliação entrega caixa lacrada Dunamis" />
+                  <img src="/netlify/depo_cadeira_6.webp" alt="Foto avaliação entrega caixa lacrada Dunamis" />
                   <div class="ml-op-thumb-badge">5 ★</div>
                 </div>
                 <div class="ml-op-thumb-card" onclick="scrollModalToReview(7)">
-                  <img src="depo_cadeira_7.webp" alt="Foto avaliação gatinho dormindo no estofado" />
+                  <img src="/netlify/depo_cadeira_7.webp" alt="Foto avaliação gatinho dormindo no estofado" />
                   <div class="ml-op-thumb-badge">5 ★</div>
                 </div>
                 <div class="ml-op-thumb-card" onclick="scrollModalToReview(8)">
-                  <img src="depo_cadeira_8.webp" alt="Foto avaliação reclinação e apoio para pés" />
+                  <img src="/netlify/depo_cadeira_8.webp" alt="Foto avaliação reclinação e apoio para pés" />
                   <div class="ml-op-thumb-badge">5 ★</div>
                 </div>
                 <div class="ml-op-thumb-card" onclick="scrollModalToReview(9)">
-                  <img src="depo_cadeira_9.webp" alt="Foto avaliação vista traseira suporte lombar" />
+                  <img src="/netlify/depo_cadeira_9.webp" alt="Foto avaliação vista traseira suporte lombar" />
                   <div class="ml-op-thumb-badge">5 ★</div>
                 </div>
                 <div class="ml-op-thumb-card" onclick="scrollModalToReview(10)">
-                  <img src="depo_cadeira_10.webp" alt="Foto avaliação cadeira montada vista frontal" />
+                  <img src="/netlify/depo_cadeira_10.webp" alt="Foto avaliação cadeira montada vista frontal" />
                   <div class="ml-op-thumb-badge">5 ★</div>
                 </div>
                 <div class="ml-op-thumb-card" onclick="scrollModalToReview(1)">
-                  <img src="depo_cadeira_11.webp" alt="Foto avaliação acabamento e almofadas inclusas" />
+                  <img src="/netlify/depo_cadeira_11.webp" alt="Foto avaliação acabamento e almofadas inclusas" />
                   <div class="ml-op-thumb-badge">5 ★</div>
                 </div>
                 <div class="ml-op-thumb-card" onclick="scrollModalToReview(2)">
-                  <img src="depo_cadeira_12.webp" alt="Foto avaliação cadeira montada na sala" />
+                  <img src="/netlify/depo_cadeira_12.webp" alt="Foto avaliação cadeira montada na sala" />
                   <div class="ml-op-thumb-badge">5 ★</div>
                 </div>
                 <div class="ml-op-thumb-card" onclick="scrollModalToReview(3)">
-                  <img src="depo_cadeira_13.webp" alt="Foto avaliação estrutura traseira reforçada" />
+                  <img src="/netlify/depo_cadeira_13.webp" alt="Foto avaliação estrutura traseira reforçada" />
                   <div class="ml-op-thumb-badge">5 ★</div>
                 </div>
                 <div class="ml-op-thumb-card" onclick="scrollModalToReview(4)">
-                  <img src="depo_cadeira_14.jpg" alt="Foto avaliação estofado macio e apoio retrátil" />
+                  <img src="/netlify/depo_cadeira_14.jpg" alt="Foto avaliação estofado macio e apoio retrátil" />
                   <div class="ml-op-thumb-badge">5 ★</div>
                 </div>
                 <div class="ml-op-thumb-card" onclick="scrollModalToReview(5)">
-                  <img src="depo_cadeira_15.jpg" alt="Foto avaliação cadeira na mesa de trabalho home office" />
+                  <img src="/netlify/depo_cadeira_15.jpg" alt="Foto avaliação cadeira na mesa de trabalho home office" />
                   <div class="ml-op-thumb-badge">5 ★</div>
                 </div>
               </div>
@@ -6276,7 +6276,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 2 semanas</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="depo_cadeira_1.webp" alt="Foto cliente cadeira Dunamis montada no escritório" />
+                <img src="/netlify/depo_cadeira_1.webp" alt="Foto cliente cadeira Dunamis montada no escritório" />
               </div>
               <div class="ml-single-review-text">
                 Simplesmente sensacional! Montei em menos de 30 minutos, o couro sintético é muito macio e o apoio lombar encaixa perfeitamente na coluna. Depois de horas trabalhando não sinto mais dor nas costas. O apoio de pés retrátil é um luxo! Chegou super rápido e muito bem embalado. Recomendo de olhos fechados! <a href="javascript:void(0)" class="saiba-mais-link">Saiba mais</a>
@@ -6296,7 +6296,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 1 mês</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="depo_cadeira_2.webp" alt="Foto cliente cadeira Dunamis reclinada" />
+                <img src="/netlify/depo_cadeira_2.webp" alt="Foto cliente cadeira Dunamis reclinada" />
               </div>
               <div class="ml-single-review-text">
                 Comprei a cadeira Preta e valeu cada centavo! A estrutura é muito firme, suporta bem meu peso (90kg) sem nenhuma folga. O pistão a gás classe 4 tem excelente qualidade. As almofadas que vieram junto são um diferencial absurdo pelo preço. Podem comprar sem medo!
@@ -6316,7 +6316,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 3 semanas</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="depo_cadeira_4.webp" alt="Foto cliente cadeira Dunamis apoio de pés" />
+                <img src="/netlify/depo_cadeira_4.webp" alt="Foto cliente cadeira Dunamis apoio de pés" />
               </div>
               <div class="ml-single-review-text">
                 Top demais! Estava ansiosa pra receber e superou minhas expectativas. Uso horas seguidas no computador e não sinto cansaço. O reclinável até 130° é incrível, dá pra descansar de verdade. A cadeira veio na caixa lacrada da Marqs Home, muito bem protegida com isopor. <a href="javascript:void(0)" class="saiba-mais-link">Saiba mais</a>
@@ -6336,7 +6336,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 1 mês</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="depo_cadeira_5.webp" alt="Foto cliente embalagem cadeira Dunamis lacrada" />
+                <img src="/netlify/depo_cadeira_5.webp" alt="Foto cliente embalagem cadeira Dunamis lacrada" />
               </div>
               <div class="ml-single-review-text">
                 Tirei foto da embalagem para quem tiver dúvida: produto original Marqs Home, embalagem lacrada com todos os itens inclusos. Entrega Full do Mercado Livre entregou no dia seguinte pela manhã. O couro tem acabamento impecável, muito resistente e macio. Nota 10!
@@ -6356,7 +6356,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 2 semanas</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="depo_cadeira_7.webp" alt="Foto cliente cadeira Dunamis reclinação apoio pés" />
+                <img src="/netlify/depo_cadeira_7.webp" alt="Foto cliente cadeira Dunamis reclinação apoio pés" />
               </div>
               <div class="ml-single-review-text">
                 Excelente compra! Peguei na promoção e compensou muito. A cadeira é maravilhosa, o apoio lombar já saiu ajustado perfeitamente, e o encosto reclinável dá muito mais opções de posição. O apoio de pés retrátil é um diferencial incrível pra quem fica muito tempo sentado. Muito satisfeito!
@@ -6376,7 +6376,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 3 semanas</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="depo_cadeira_9.webp" alt="Foto cliente cadeira Dunamis almofadas inclusas" />
+                <img src="/netlify/depo_cadeira_9.webp" alt="Foto cliente cadeira Dunamis almofadas inclusas" />
               </div>
               <div class="ml-single-review-text">
                 A cadeira tem um visual incrível, design arrojado e revestimento que parece muito mais caro do que é. As almofadas cervical e lombar incluídas fazem toda diferença. Comprei para dar de presente pro meu filho e ele pirou! Melhor compra que fiz no ano.
@@ -6396,7 +6396,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 1 mês</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="depo_cadeira_10.webp" alt="Foto cliente cadeira Dunamis setup gamer" />
+                <img src="/netlify/depo_cadeira_10.webp" alt="Foto cliente cadeira Dunamis setup gamer" />
               </div>
               <div class="ml-single-review-text">
                 Uso a cadeira tanto no escritório quanto no quarto gamer e ela se encaixa perfeitamente nos dois ambientes. A qualidade de construção é impecável, as rodinhas deslizam suaves sem arranhar o piso. Chegou antes do prazo estipulado.
@@ -6416,7 +6416,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 2 meses</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="depo_cadeira_11.webp" alt="Foto cliente cadeira Dunamis iluminação noturna" />
+                <img src="/netlify/depo_cadeira_11.webp" alt="Foto cliente cadeira Dunamis iluminação noturna" />
               </div>
               <div class="ml-single-review-text">
                 Com a iluminação do quarto ligada à noite a cadeira fica surreal de bonita. O design em couro preto valoriza demais o setup gamer. A espuma do assento tem uma densidade incrível, não afunda mesmo após horas de uso. O reclinável com trava é perfeito. Recomendo muito! <a href="javascript:void(0)" class="saiba-mais-link">Saiba mais</a>
@@ -6436,7 +6436,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 1 mês</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="depo_cadeira_12.webp" alt="Foto cliente cadeira Dunamis vista lateral" />
+                <img src="/netlify/depo_cadeira_12.webp" alt="Foto cliente cadeira Dunamis vista lateral" />
               </div>
               <div class="ml-single-review-text">
                 Cadeira original Marqs Home, linda, robusta e super confortável. Testei todas as funções: reclinação, apoio de pés, regulagem de altura, pistão a gás — tudo 100% funcionando perfeitamente. As almofadas que vieram junto são um diferencial absurdo pelo preço cobrado.
@@ -6456,7 +6456,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 2 semanas</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="depo_cadeira_13.webp" alt="Foto cliente embalagem Dunamis bem protegida" />
+                <img src="/netlify/depo_cadeira_13.webp" alt="Foto cliente embalagem Dunamis bem protegida" />
               </div>
               <div class="ml-single-review-text">
                 Qualidade nota mil! A cadeira tem um acabamento impecável, costura automotiva bem feita e couro resistente. Chegou intacta, muito bem protegida na embalagem original. Podem comprar que o produto é de primeira qualidade!
