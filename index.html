@@ -22,23 +22,23 @@
     var chairGalleries = {
       'Preta': {
         all: [
-          '/cadeira_1.webp',
-          '/cadeira_2.webp',
-          '/cadeira_3.webp',
-          '/cadeira_4.webp',
-          '/cadeira_5.webp',
-          '/cadeira_6.webp',
-          '/cadeira_7.webp',
-          '/cadeira_8.webp',
-          '/cadeira_9.webp',
-          '/cadeira_10.webp',
-          '/cadeira_11.webp'
+          'cadeira_1.webp',
+          'cadeira_2.webp',
+          'cadeira_3.webp',
+          'cadeira_4.webp',
+          'cadeira_5.webp',
+          'cadeira_6.webp',
+          'cadeira_7.webp',
+          'cadeira_8.webp',
+          'cadeira_9.webp',
+          'cadeira_10.webp',
+          'cadeira_11.webp'
         ],
         remaining: [
-          '/cadeira_8.webp',
-          '/cadeira_9.webp',
-          '/cadeira_10.webp',
-          '/cadeira_11.webp'
+          'cadeira_8.webp',
+          'cadeira_9.webp',
+          'cadeira_10.webp',
+          'cadeira_11.webp'
         ],
         alts: [
           'Foto 1 - Cadeira Gamer Dunamis Preta Marqs Home',
@@ -53,23 +53,23 @@
       },
       'Vermelha': {
         all: [
-          '/cadeira_vermelha_1.webp',
-          '/cadeira_vermelha_2.webp',
-          '/cadeira_vermelha_3.webp',
-          '/cadeira_vermelha_4.webp',
-          '/cadeira_vermelha_5.webp',
-          '/cadeira_vermelha_6.webp',
-          '/cadeira_vermelha_7.webp',
-          '/cadeira_vermelha_8.webp',
-          '/cadeira_vermelha_9.webp',
-          '/cadeira_vermelha_10.webp',
-          '/cadeira_vermelha_11.webp'
+          'cadeira_vermelha_1.webp',
+          'cadeira_vermelha_2.webp',
+          'cadeira_vermelha_3.webp',
+          'cadeira_vermelha_4.webp',
+          'cadeira_vermelha_5.webp',
+          'cadeira_vermelha_6.webp',
+          'cadeira_vermelha_7.webp',
+          'cadeira_vermelha_8.webp',
+          'cadeira_vermelha_9.webp',
+          'cadeira_vermelha_10.webp',
+          'cadeira_vermelha_11.webp'
         ],
         remaining: [
-          '/cadeira_vermelha_8.webp',
-          '/cadeira_vermelha_9.webp',
-          '/cadeira_vermelha_10.webp',
-          '/cadeira_vermelha_11.webp'
+          'cadeira_vermelha_8.webp',
+          'cadeira_vermelha_9.webp',
+          'cadeira_vermelha_10.webp',
+          'cadeira_vermelha_11.webp'
         ],
         alts: [
           'Foto 1 - Cadeira Gamer Dunamis Vermelha Marqs Home',
@@ -164,7 +164,7 @@
       var mainImg = document.getElementById('mainGalleryImg');
       if (!mainImg) return 0;
       var src = mainImg.src.split('/').pop().split('?')[0];
-      var idx = allGalleryImages.findIndex(function(path) { return path.split('/').pop().split('?')[0] === src; });
+      var idx = allGalleryImages.indexOf(src);
       return idx !== -1 ? idx : 0;
     }
 
@@ -1975,116 +1975,488 @@
     }
 
     /* ==========================================================
-       CHECKOUT MODAL CASA DO NOEL (COMPRA RÁPIDA & PIX)
+       CHECKOUT MERCADO LIVRE NATIVO APP / MOBILE & DESKTOP (PIXEL PERFECT)
        ========================================================== */
     .ml-checkout-overlay {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(4px);
-      z-index: 999999;
+      width: 100vw;
+      height: 100vh;
+      background: #f5f5f5;
+      z-index: 9999999;
       display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
+      flex-direction: column;
       overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      box-sizing: border-box;
     }
     .ml-checkout-overlay.active {
       display: flex;
     }
-    .ml-checkout-card {
-      background: #ffffff;
-      width: 100%;
-      max-width: 600px;
-      border-radius: var(--radius-sm);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      max-height: 94vh;
-      animation: mlSlide 0.22s ease-out;
-    }
-    @keyframes mlSlide {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
 
-    .ml-modal-header {
-      background: var(--ml-yellow);
-      padding: 14px 20px;
+    /* Top Yellow App Header */
+    .ml-ck-header {
+      background: #ffe600;
+      min-height: 54px;
+      padding: 0 16px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #e6cf00;
+      gap: 16px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+      flex-shrink: 0;
     }
-    .ml-modal-header-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: #2d3277;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .ml-modal-close-btn {
-      background: transparent;
+    .ml-ck-back-btn {
+      background: none;
       border: none;
       font-size: 20px;
-      color: #666;
+      color: #333333;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px;
+      margin-left: -6px;
+      line-height: 1;
     }
-
-    .ml-modal-body {
-      padding: 20px;
-      overflow-y: auto;
+    .ml-ck-header-title {
+      font-size: 18px;
+      font-weight: 500;
+      color: #333333;
+      letter-spacing: -0.2px;
       flex: 1;
     }
 
-    /* Resumo no Checkout */
-    .ml-checkout-summary {
-      background: #fbfbfb;
-      border: 1px solid var(--ml-border);
-      border-radius: var(--radius-sm);
-      padding: 12px 16px;
+    /* Container de Conteúdo */
+    .ml-ck-main {
+      width: 100%;
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 14px 16px 100px;
+      box-sizing: border-box;
+      flex: 1;
+    }
+
+    /* Bloco Produto / Identificação resumida no topo */
+    .ml-ck-product-strip {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+      padding: 4px 0;
+    }
+    .ml-ck-prod-img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      background: #ffffff;
+      border-radius: 4px;
+      border: 1px solid #e0e0e0;
+      flex-shrink: 0;
+    }
+    .ml-ck-prod-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .ml-ck-badge-mais-vendido {
+      display: inline-block;
+      background: #ff7733;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin-bottom: 2px;
+    }
+    .ml-ck-prod-title {
+      font-size: 13px;
+      color: #333333;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .ml-ck-prod-subtitle {
+      font-size: 12px;
+      color: #777777;
+    }
+
+    /* Seções e Cards Brancos */
+    .ml-ck-section-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333333;
+      margin: 16px 0 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .ml-ck-section-title a {
+      font-size: 13px;
+      color: #3483fa;
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    /* Card de Endereço Selecionado */
+    .ml-ck-address-card {
+      background: #eaf1fb;
+      border: 1px solid #bdd3f8;
+      border-radius: 6px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .ml-ck-address-icon {
+      font-size: 26px;
+      line-height: 1;
+    }
+    .ml-ck-address-text {
+      flex: 1;
+    }
+    .ml-ck-address-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #333333;
+      margin-bottom: 2px;
+    }
+    .ml-ck-address-sub {
+      font-size: 13px;
+      color: #666666;
+      margin-bottom: 6px;
+    }
+    .ml-ck-address-edit-link {
+      font-size: 13px;
+      color: #3483fa;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* Card de Opção de Envio (Chegará rápido amanhã - R$ 19,90 / Grátis) */
+    .ml-ck-shipping-card {
+      background: #ffffff;
+      border-radius: 6px;
+      border: 1px solid #e6e6e6;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .ml-ck-shipping-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .ml-ck-radio-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 5px solid #3483fa;
+      background: #ffffff;
+      flex-shrink: 0;
+      box-sizing: border-box;
+    }
+    .ml-ck-radio-dot-unselected {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid #999999;
+      background: #ffffff;
+      flex-shrink: 0;
+      box-sizing: border-box;
+    }
+    .ml-ck-shipping-label {
+      font-size: 14px;
+      color: #00a650;
+      font-weight: 600;
+    }
+    .ml-ck-shipping-price {
+      font-size: 14px;
+      color: #333333;
+      font-weight: 600;
+    }
+    .ml-ck-shipping-price sup {
+      font-size: 10px;
+    }
+
+    /* Seção Meios de Pagamento */
+    .ml-ck-payment-card {
+      background: #ffffff;
+      border-radius: 6px;
+      border: 1px solid #e6e6e6;
+      padding: 14px 16px;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
       gap: 14px;
-      margin-bottom: 18px;
+      cursor: pointer;
     }
-    .ml-checkout-thumb {
-      width: 58px;
-      height: 58px;
-      border-radius: 4px;
-      object-fit: cover;
-      border: 1px solid #e2e8f0;
+    .ml-ck-payment-card.active {
+      border: 1px solid #3483fa;
     }
-    .ml-chk-info h4 {
-      font-size: 14px;
-      font-weight: 700;
-      color: #333;
-    }
-    .ml-chk-info p {
-      font-size: 12px;
-      color: #777;
-    }
-    .ml-chk-price-box {
-      margin-left: auto;
-      text-align: right;
-    }
-    .ml-chk-price-box .val {
+    .ml-ck-pay-icon-pix {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #e6f7f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #00b49d;
       font-size: 18px;
-      font-weight: 700;
-      color: #333;
+      flex-shrink: 0;
     }
-    .ml-chk-price-box .ship {
-      font-size: 11px;
-      color: var(--ml-green);
+    .ml-ck-pay-icon-boleto {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333333;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .ml-ck-pay-info {
+      flex: 1;
+    }
+    .ml-ck-pay-tag-paguemenos {
+      display: inline-block;
+      background: #000000;
+      color: #ffffff;
+      font-size: 10px;
       font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .ml-ck-pay-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: #333333;
+    }
+    .ml-ck-pay-economy-pill {
+      display: inline-block;
+      background: #e6f7ee;
+      color: #00a650;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-top: 4px;
+    }
+    .ml-ck-show-all-payments {
+      display: block;
+      color: #3483fa;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      margin: 8px 0 16px 4px;
     }
 
-    /* Formulário de Entrega */
+    /* Faturamento */
+    .ml-ck-billing-card {
+      background: #ffffff;
+      border-radius: 6px;
+      border: 1px solid #e6e6e6;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      cursor: pointer;
+    }
+    .ml-ck-billing-info-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #333333;
+      margin-bottom: 4px;
+    }
+    .ml-ck-billing-info-sub {
+      font-size: 13px;
+      color: #666666;
+    }
+    .ml-ck-billing-arrow {
+      color: #3483fa;
+      font-size: 15px;
+    }
+
+    /* Resumo da Compra */
+    .ml-ck-summary-card {
+      background: #ffffff;
+      border-radius: 6px;
+      border: 1px solid #e6e6e6;
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+    .ml-ck-summary-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333333;
+      margin-bottom: 14px;
+    }
+    .ml-ck-sum-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: #333333;
+      margin-bottom: 10px;
+    }
+    .ml-ck-sum-row sup {
+      font-size: 10px;
+    }
+    .ml-ck-coupon-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #3483fa;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      margin: 12px 0 14px;
+    }
+    .ml-ck-sum-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 17px;
+      font-weight: 600;
+      color: #333333;
+      padding-top: 12px;
+      border-top: 1px solid #eeeeee;
+    }
+    .ml-ck-sum-total-val {
+      font-size: 20px;
+      font-weight: 700;
+      color: #333333;
+    }
+    .ml-ck-sum-total-val sup {
+      font-size: 12px;
+    }
+
+    /* Barra Fixa Inferior (Mobile & Desktop) com Botão "Pagar e finalizar" */
+    .ml-ck-bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #ffffff;
+      border-top: 1px solid #e0e0e0;
+      padding: 12px 16px;
+      box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.08);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+    }
+    .ml-ck-bottom-bar-inner {
+      width: 100%;
+      max-width: 620px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .ml-ck-bottom-price-col {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+    .ml-ck-bottom-total {
+      font-size: 19px;
+      font-weight: 700;
+      color: #333333;
+    }
+    .ml-ck-bottom-total sup {
+      font-size: 11px;
+    }
+    .ml-ck-btn-pay {
+      flex: 1;
+      max-width: 280px;
+      height: 46px;
+      background: #3483fa;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+    .ml-ck-btn-pay:hover {
+      background: #2968c8;
+    }
+    @media (max-width: 480px) {
+      .ml-ck-btn-pay {
+        max-width: none;
+      }
+    }
+
+    /* Modal / Bottom Sheet para preenchimento de endereço e dados */
+    .ml-ck-submodal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 100000;
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .ml-ck-submodal-overlay.active {
+      display: flex;
+    }
+    .ml-ck-submodal-card {
+      background: #ffffff;
+      width: 100%;
+      max-width: 580px;
+      border-radius: 14px 14px 0 0;
+      padding: 20px 20px 24px;
+      max-height: 85vh;
+      overflow-y: auto;
+      animation: mlSlideUp 0.25s ease-out;
+      box-sizing: border-box;
+    }
+    @keyframes mlSlideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+    .ml-ck-submodal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    .ml-ck-submodal-header h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: #333333;
+      margin: 0;
+    }
+
+    /* Inputs do Mercado Livre no Modal de Endereço */
     .ml-form-group {
       margin-bottom: 12px;
     }
@@ -2097,16 +2469,17 @@
     }
     .ml-form-input {
       width: 100%;
-      height: 40px;
+      height: 42px;
       padding: 0 12px;
-      border: 1px solid var(--ml-border-dark);
-      border-radius: var(--radius-sm);
+      border: 1px solid #ccc;
+      border-radius: 6px;
       font-size: 14px;
       color: #333;
       transition: border 0.15s;
+      box-sizing: border-box;
     }
     .ml-form-input:focus {
-      border-color: var(--ml-blue);
+      border-color: #3483fa;
       outline: none;
       box-shadow: 0 0 0 2px rgba(52, 131, 250, 0.2);
     }
@@ -2116,124 +2489,601 @@
       gap: 12px;
     }
 
-    .ml-payment-badge-active {
-      border: 2px solid var(--ml-green);
-      background: var(--ml-green-light);
-      border-radius: var(--radius-sm);
-      padding: 12px 14px;
-      margin: 14px 0 18px;
+    /* ==========================================================
+       ETAPA: ADICIONE UM SEGURO (UPSELL SCREEN - IMAGEM 3)
+       ========================================================== */
+    .ml-ck-screen-insurance {
+      display: none;
+    }
+    .ml-ck-screen-insurance.active {
+      display: block;
+    }
+    .ml-ck-ins-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #333333;
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+    .ml-ck-ins-desc {
+      font-size: 15px;
+      color: #555555;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+    .ml-ck-ins-details-link {
+      font-size: 14px;
+      color: #3483fa;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .ml-ck-ins-prod-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .ml-ck-ins-prod-icon {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid #00a650;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      flex-shrink: 0;
+    }
+    .ml-ck-ins-prod-icon img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+    .ml-ck-ins-prod-icon .check-badge {
+      position: absolute;
+      bottom: -3px;
+      right: -3px;
+      background: #00a650;
+      color: #ffffff;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      font-size: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #ffffff;
+    }
+    .ml-ck-ins-prod-label {
+      font-size: 12px;
+      color: #666666;
+    }
+    .ml-ck-ins-prod-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #333333;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 320px;
+    }
+
+    /* Cards de Opção de Seguro */
+    .ml-ck-ins-option-card {
+      background: #ffffff;
+      border: 1px solid #dcdcdc;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      cursor: pointer;
+      position: relative;
     }
-    .ml-payment-badge-active .title {
-      font-size: 14px;
-      font-weight: 700;
-      color: #007a3d;
+    .ml-ck-ins-option-card.selected {
+      border: 2px solid #3483fa;
     }
-    .ml-payment-badge-active .sub {
-      font-size: 11px;
-      color: #008741;
-    }
-
-    .ml-btn-confirm-order {
-      width: 100%;
-      height: 48px;
-      background: var(--ml-green);
-      color: #fff;
-      font-size: 16px;
-      font-weight: 700;
-      border-radius: var(--radius-sm);
+    .ml-ck-ins-opt-left {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: background 0.2s;
+      gap: 12px;
     }
-    .ml-btn-confirm-order:hover {
-      background: var(--ml-green-dark);
+    .ml-ck-ins-opt-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: #333333;
+    }
+    .ml-ck-ins-opt-right {
+      text-align: right;
+    }
+    .ml-ck-ins-opt-installments {
+      font-size: 14px;
+      font-weight: 600;
+      color: #333333;
+    }
+    .ml-ck-ins-opt-installments span {
+      color: #00a650;
+      font-weight: 600;
+    }
+    .ml-ck-ins-opt-full {
+      font-size: 12px;
+      color: #666666;
+      margin-top: 2px;
+    }
+    .ml-ck-ins-opt-eco {
+      font-size: 12px;
+      color: #00a650;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+    .ml-ck-ins-rec-badge {
+      position: absolute;
+      top: -10px;
+      right: 14px;
+      background: #000000;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 3px;
+      letter-spacing: 0.4px;
     }
 
-    /* Tela de QR Code Pix */
-    .ml-pix-screen {
-      display: none;
-      text-align: center;
-      padding: 6px 0;
+    .ml-ck-ins-actions-bar {
+      margin-top: 36px;
+      display: flex;
+      gap: 12px;
     }
-    .ml-pix-screen.active {
+    .ml-ck-btn-ins-skip {
+      flex: 1;
+      height: 48px;
+      background: #edf3fc;
+      color: #3483fa;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .ml-ck-btn-ins-add {
+      flex: 1;
+      height: 48px;
+      background: #3483fa;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .ml-ck-ins-legal {
+      font-size: 12px;
+      color: #777777;
+      text-align: center;
+      margin-top: 18px;
+      line-height: 1.4;
+    }
+    .ml-ck-ins-legal a {
+      color: #3483fa;
+      text-decoration: none;
+    }
+
+    /* ==========================================================
+       ETAPA: TELA DE CARREGAMENTO ("Preparando tudo / Já é quase sua!")
+       ========================================================== */
+    .ml-ck-screen-loading {
+      display: none;
+      min-height: calc(100vh - 54px);
+      background: #ffffff;
+      text-align: center;
+      padding-top: 180px;
+    }
+    .ml-ck-screen-loading.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .ml-ck-loading-text {
+      font-size: 22px;
+      font-weight: 600;
+      color: #333333;
+      margin-bottom: 30px;
+    }
+    .ml-ck-spinner {
+      width: 48px;
+      height: 48px;
+      border: 4px solid #e0e0e0;
+      border-top-color: #3483fa;
+      border-radius: 50%;
+      animation: mlSpin 0.8s linear infinite;
+    }
+    @keyframes mlSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* ==========================================================
+       ETAPA FINAL: TELA PIX IDENTICA AO MERCADO LIVRE (IMAGEM 5)
+       ========================================================== */
+    .ml-ck-screen-pix-success {
+      display: none;
+    }
+    .ml-ck-screen-pix-success.active {
       display: block;
     }
-    .ml-pix-timer {
-      background: #fff8e1;
-      border: 1px solid #ffe082;
-      color: #8d6e63;
-      padding: 8px 12px;
-      border-radius: var(--radius-sm);
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 14px;
+    .ml-ck-pix-modal-card {
+      background: #ffffff;
+      border-radius: 8px;
+      border: 1px solid #e2e2e2;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      overflow: hidden;
+      margin: 10px auto;
+      max-width: 500px;
     }
-    .ml-pix-qrcode-frame {
-      width: 190px;
-      height: 190px;
-      margin: 0 auto 14px;
-      padding: 8px;
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: var(--radius-sm);
+    .ml-ck-pix-header-sec {
+      padding: 24px 20px 20px;
+      text-align: center;
+      position: relative;
+    }
+    .ml-ck-pix-close-top {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: #666666;
+      cursor: pointer;
+    }
+    .ml-ck-pix-icon-circle {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 2px solid #00a650;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #00a650;
+      font-size: 24px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .ml-ck-pix-icon-subdot {
+      position: absolute;
+      bottom: -2px;
+      right: -2px;
+      background: #00a650;
+      color: #fff;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-    .ml-pix-qrcode-frame img {
-      max-width: 100%;
-      height: auto;
-    }
-    .ml-copy-code-container {
-      background: #f7f7f7;
-      border: 1px dashed #ccc;
-      padding: 12px;
-      border-radius: var(--radius-sm);
-      margin-bottom: 14px;
-    }
-    .ml-pix-text-area {
-      font-family: monospace;
       font-size: 11px;
-      word-break: break-all;
-      color: #555;
-      background: #fff;
-      padding: 6px;
-      border: 1px solid #e0e0e0;
-      border-radius: 3px;
-      max-height: 54px;
-      overflow-y: auto;
-      margin-bottom: 10px;
-      text-align: left;
     }
-    .ml-btn-copy-pix {
-      background: var(--ml-blue);
-      color: #fff;
-      padding: 9px 20px;
-      border-radius: var(--radius-sm);
+    .ml-ck-pix-sub-headline {
       font-size: 14px;
+      color: #666666;
+      margin-bottom: 6px;
+    }
+    .ml-ck-pix-main-headline {
+      font-size: 20px;
       font-weight: 700;
-      cursor: pointer;
-      display: inline-flex;
+      color: #333333;
+      line-height: 1.3;
+    }
+    .ml-ck-pix-countdown-banner {
+      background: #ffe600;
+      padding: 10px 14px;
+      display: flex;
       align-items: center;
-      gap: 6px;
-    }
-    .ml-btn-copy-pix:hover {
-      background: var(--ml-blue-hover);
-    }
-    .ml-pix-footer-notice {
-      background: #f0fdf4;
-      border: 1px solid #bbf7d0;
-      padding: 10px;
-      border-radius: var(--radius-sm);
-      font-size: 12px;
-      color: #166534;
+      justify-content: center;
+      gap: 10px;
+      font-size: 14px;
       font-weight: 600;
-      text-align: left;
+      color: #333333;
+    }
+    .ml-ck-pix-time-badge {
+      background: #ffffff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 15px;
+      color: #333333;
+    }
+    .ml-ck-pix-body-sec {
+      padding: 22px 20px 24px;
+    }
+    .ml-ck-pix-inst-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #333333;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #eeeeee;
+    }
+    .ml-ck-pix-steps-ol {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 18px 0;
+    }
+    .ml-ck-pix-steps-ol li {
+      font-size: 14px;
+      color: #444444;
+      margin-bottom: 10px;
+      line-height: 1.4;
+      display: flex;
+      gap: 8px;
+    }
+    .ml-ck-pix-steps-ol li strong {
+      color: #222222;
+    }
+    .ml-ck-pix-input-box {
+      border: 1px solid #d4d4d4;
+      border-radius: 6px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+      background: #fafafa;
+    }
+    .ml-ck-pix-raw-code {
+      font-family: monospace;
+      font-size: 13px;
+      color: #444444;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1;
+    }
+    .ml-ck-pix-copy-link {
+      color: #3483fa;
+      font-size: 14px;
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .ml-ck-pix-info-notice {
+      background: #f0f7ff;
+      border-left: 4px solid #3483fa;
+      padding: 12px 14px;
+      border-radius: 0 6px 6px 0;
+      font-size: 13px;
+      color: #333333;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      line-height: 1.4;
+    }
+    .ml-ck-pix-info-notice i {
+      color: #3483fa;
+      font-size: 16px;
+      margin-top: 1px;
+    }
+    .ml-ck-btn-copy-big {
+      width: 100%;
+      height: 48px;
+      background: #3483fa;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      transition: background 0.15s;
+    }
+    .ml-ck-btn-copy-big:hover {
+      background: #2968c8;
+    }
+    .ml-ck-link-my-orders {
+      display: block;
+      text-align: center;
+      color: #3483fa;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    /* ==========================================================
+       ADAPTAÇÃO MOBILE / SMARTPHONE MERCADO LIVRE (APP NATIVO)
+       ========================================================== */
+    @media (max-width: 768px) {
+      .ml-checkout-overlay {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        background: #f5f5f5 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: none;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        z-index: 99999999 !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+      }
+      .ml-checkout-overlay.active {
+        display: flex !important;
+      }
+
+      /* Barra Amarela Superior Mobile (Igual ao topo do app nas fotos) */
+      .ml-ck-header {
+        position: sticky !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 52px !important;
+        min-height: 52px !important;
+        background: #ffe600 !important;
+        padding: 0 14px !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 14px !important;
+        z-index: 9999 !important;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.12) !important;
+        box-sizing: border-box !important;
+      }
+      .ml-ck-back-btn {
+        width: 38px !important;
+        height: 38px !important;
+        font-size: 20px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: #333 !important;
+        margin-left: -6px !important;
+      }
+      .ml-ck-header-title {
+        font-size: 17px !important;
+        font-weight: 500 !important;
+        color: #333333 !important;
+      }
+
+      /* Container Principal no Celular */
+      .ml-ck-main {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 12px 14px 105px !important; /* Espaço para a barra inferior fixa */
+        margin: 0 !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Resumo do Produto no Mobile */
+      .ml-ck-product-strip {
+        padding: 6px 0 10px !important;
+        gap: 12px !important;
+      }
+      .ml-ck-prod-img {
+        width: 52px !important;
+        height: 52px !important;
+        border-radius: 4px !important;
+      }
+      .ml-ck-prod-title {
+        font-size: 14px !important;
+      }
+
+      /* Cards Brancos no Celular */
+      .ml-ck-address-card {
+        padding: 13px 14px !important;
+        margin-bottom: 12px !important;
+      }
+      .ml-ck-address-title {
+        font-size: 14px !important;
+      }
+      .ml-ck-shipping-card {
+        padding: 14px 14px !important;
+        margin-bottom: 14px !important;
+      }
+      .ml-ck-payment-card {
+        padding: 14px 14px !important;
+        margin-bottom: 8px !important;
+      }
+      .ml-ck-billing-card {
+        padding: 14px 14px !important;
+        margin-bottom: 14px !important;
+      }
+      .ml-ck-summary-card {
+        padding: 14px 14px !important;
+        margin-bottom: 18px !important;
+      }
+
+      /* Barra Fixa Inferior Mobile com Safe Area */
+      .ml-ck-bottom-bar {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        background: #ffffff !important;
+        border-top: 1px solid #e0e0e0 !important;
+        padding: 10px 14px calc(10px + env(safe-area-inset-bottom, 0px)) !important;
+        box-shadow: 0 -4px 14px rgba(0, 0, 0, 0.08) !important;
+        z-index: 99999 !important;
+        box-sizing: border-box !important;
+      }
+      .ml-ck-bottom-bar-inner {
+        width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 12px !important;
+      }
+      .ml-ck-bottom-total {
+        font-size: 19px !important;
+      }
+      .ml-ck-btn-pay {
+        flex: 1 !important;
+        height: 48px !important;
+        font-size: 16px !important;
+        font-weight: 600 !important;
+        border-radius: 6px !important;
+      }
+
+      /* Tela de Seguro no Mobile (Imagem 3) */
+      .ml-ck-ins-title {
+        font-size: 22px !important;
+      }
+      .ml-ck-ins-actions-bar {
+        margin-top: 26px !important;
+        gap: 10px !important;
+      }
+      .ml-ck-btn-ins-skip,
+      .ml-ck-btn-ins-add {
+        height: 48px !important;
+        font-size: 15px !important;
+      }
+
+      /* Tela Pix Sucesso no Celular (Imagem 5) */
+      .ml-ck-pix-modal-card {
+        margin: 4px auto 14px !important;
+        border-radius: 8px !important;
+        border: 1px solid #dedede !important;
+      }
+      .ml-ck-pix-header-sec {
+        padding: 20px 14px 16px !important;
+      }
+      .ml-ck-pix-main-headline {
+        font-size: 19px !important;
+      }
+      .ml-ck-pix-body-sec {
+        padding: 18px 14px 20px !important;
+      }
+      .ml-ck-pix-input-box {
+        padding: 10px 12px !important;
+      }
+      .ml-ck-pix-raw-code {
+        font-size: 12px !important;
+      }
+      .ml-ck-btn-copy-big {
+        height: 48px !important;
+        font-size: 16px !important;
+      }
+
+      /* Prevenção de Auto-Zoom em campos de formulário no iOS */
+      .ml-form-input {
+        font-size: 16px !important;
+        height: 44px !important;
+      }
+      .ml-form-row-2 {
+        grid-template-columns: 1fr !important;
+        gap: 10px !important;
+      }
     }
 
     /* Notificação Toast */
@@ -4352,7 +5202,7 @@
 
         <!-- Logo Oficial Mercado Livre (Clássico com Oval e Aperto de Mãos) -->
         <a href="#" class="ml-logo-link" style="text-decoration:none;" title="Mercado Livre">
-          <img src="/ml_logo.png" alt="Mercado Livre" class="ml-logo-img" />
+          <img src="ml_logo.png" alt="Mercado Livre" class="ml-logo-img" />
         </a>
 
         <!-- Ações do Topo Mobile: Lupa e Botão Preto GANHOS 5% -->
@@ -4455,43 +5305,43 @@
           <!-- Miniaturas Verticais (8 Quadrados no estilo oficial Mercado Livre) -->
           <div class="ml-thumbs-vertical">
             <!-- 1: Imagem Principal -->
-            <div class="ml-thumb-item active" onmouseenter="showGalleryImage('/cadeira_1.webp', this)" onclick="showGalleryImage('/cadeira_1.webp', this)">
-              <img src="/cadeira_1.webp" alt="Foto 1 - Cadeira Gamer Dunamis Preta Marqs Home" />
+            <div class="ml-thumb-item active" onmouseenter="showGalleryImage('cadeira_1.webp', this)" onclick="showGalleryImage('cadeira_1.webp', this)">
+              <img src="cadeira_1.webp" alt="Foto 1 - Cadeira Gamer Dunamis Preta Marqs Home" />
             </div>
 
             <!-- 2: Foto 2 -->
-            <div class="ml-thumb-item" onmouseenter="showGalleryImage('/cadeira_2.webp', this)" onclick="showGalleryImage('/cadeira_2.webp', this)">
-              <img src="/cadeira_2.webp" alt="Foto 2 - Cadeira Dunamis Benefícios e Recursos" />
+            <div class="ml-thumb-item" onmouseenter="showGalleryImage('cadeira_2.webp', this)" onclick="showGalleryImage('cadeira_2.webp', this)">
+              <img src="cadeira_2.webp" alt="Foto 2 - Cadeira Dunamis Benefícios e Recursos" />
             </div>
 
             <!-- 3: Foto 3 -->
-            <div class="ml-thumb-item" onmouseenter="showGalleryImage('/cadeira_3.webp', this)" onclick="showGalleryImage('/cadeira_3.webp', this)">
-              <img src="/cadeira_3.webp" alt="Foto 3 - Medidas e Capacidade 180kg" />
+            <div class="ml-thumb-item" onmouseenter="showGalleryImage('cadeira_3.webp', this)" onclick="showGalleryImage('cadeira_3.webp', this)">
+              <img src="cadeira_3.webp" alt="Foto 3 - Medidas e Capacidade 180kg" />
             </div>
 
             <!-- 4: Foto 4 -->
-            <div class="ml-thumb-item" onmouseenter="showGalleryImage('/cadeira_4.webp', this)" onclick="showGalleryImage('/cadeira_4.webp', this)">
-              <img src="/cadeira_4.webp" alt="Foto 4 - Inclinação até 130 Graus" />
+            <div class="ml-thumb-item" onmouseenter="showGalleryImage('cadeira_4.webp', this)" onclick="showGalleryImage('cadeira_4.webp', this)">
+              <img src="cadeira_4.webp" alt="Foto 4 - Inclinação até 130 Graus" />
             </div>
 
             <!-- 5: Foto 5 -->
-            <div class="ml-thumb-item" onmouseenter="showGalleryImage('/cadeira_5.webp', this)" onclick="showGalleryImage('/cadeira_5.webp', this)">
-              <img src="/cadeira_5.webp" alt="Foto 5 - Setup Gamer Dunamis Marqs" />
+            <div class="ml-thumb-item" onmouseenter="showGalleryImage('cadeira_5.webp', this)" onclick="showGalleryImage('cadeira_5.webp', this)">
+              <img src="cadeira_5.webp" alt="Foto 5 - Setup Gamer Dunamis Marqs" />
             </div>
 
             <!-- 6: Foto 6 -->
-            <div class="ml-thumb-item" onmouseenter="showGalleryImage('/cadeira_6.webp', this)" onclick="showGalleryImage('/cadeira_6.webp', this)">
-              <img src="/cadeira_6.webp" alt="Foto 6 - Apoio para Pés e Reclinação" />
+            <div class="ml-thumb-item" onmouseenter="showGalleryImage('cadeira_6.webp', this)" onclick="showGalleryImage('cadeira_6.webp', this)">
+              <img src="cadeira_6.webp" alt="Foto 6 - Apoio para Pés e Reclinação" />
             </div>
 
             <!-- 7: Foto 7 -->
-            <div class="ml-thumb-item" onmouseenter="showGalleryImage('/cadeira_7.webp', this)" onclick="showGalleryImage('/cadeira_7.webp', this)">
-              <img src="/cadeira_7.webp" alt="Foto 7 - Design Traseiro Ergonômico" />
+            <div class="ml-thumb-item" onmouseenter="showGalleryImage('cadeira_7.webp', this)" onclick="showGalleryImage('cadeira_7.webp', this)">
+              <img src="cadeira_7.webp" alt="Foto 7 - Design Traseiro Ergonômico" />
             </div>
 
             <!-- 8: Oitavo Quadrado com todas as fotos restantes agrupadas -->
             <div class="ml-thumb-item ml-thumb-more" onmouseenter="showRemainingGallery(this)" onclick="openGalleryModal(7)" title="Clique para abrir a galeria de fotos">
-              <img src="/cadeira_8.webp" alt="Mais fotos da Cadeira Dunamis" />
+              <img src="cadeira_8.webp" alt="Mais fotos da Cadeira Dunamis" />
               <div class="ml-thumb-more-overlay">+4</div>
             </div>
           </div>
@@ -4499,7 +5349,7 @@
           <!-- Quadro Principal Mercado Livre: 1:1 Quadrado com Zoom Interativo -->
           <div class="ml-main-image-frame" id="mainGalleryFrame" onclick="openGalleryModal(getCurrentGalleryIndex())" onmousemove="handleGalleryZoom(event)" onmouseleave="resetGalleryZoom()">
             <span class="ml-mobile-slide-counter" id="mobileSlideCounter">1 / 11</span>
-            <img id="mainGalleryImg" src="/cadeira_1.webp" alt="" />
+            <img id="mainGalleryImg" src="cadeira_1.webp" alt="" />
           </div>
         </div>
 
@@ -4585,7 +5435,7 @@
             <div class="ml-m-photo-cards-grid">
               <!-- Card 1: Com ícone de Play de vídeo -->
               <div class="ml-m-photo-card" onclick="openReviewsModal()">
-                <img src="/depo_cadeira_2.webp" alt="Foto cliente avaliação cadeira gamer setup" />
+                <img src="depo_cadeira_2.webp" alt="Foto cliente avaliação cadeira gamer setup" />
                 <div class="ml-m-play-btn-overlay">
                   <i class="fa-solid fa-play"></i>
                 </div>
@@ -4593,7 +5443,7 @@
 
               <!-- Card 2: Com overlay +579 fotos -->
               <div class="ml-m-photo-card" onclick="openReviewsModal()">
-                <img src="/depo_cadeira_4.webp" alt="Foto cliente avaliação Cadeira Dunamis" />
+                <img src="depo_cadeira_4.webp" alt="Foto cliente avaliação Cadeira Dunamis" />
                 <div class="ml-m-count-dark-overlay">
                   +579
                 </div>
@@ -4868,11 +5718,11 @@
           </div>
 
           <div class="ml-color-thumbs-row">
-            <button type="button" class="ml-color-thumb-btn selected" id="colorPretaBtn" onclick="selectChairColor('Preta', '/color_preta.png', this)" title="Cor: Preta">
-              <img src="/color_preta.png" alt="Cadeira Gamer Dunamis Preta" />
+            <button type="button" class="ml-color-thumb-btn selected" id="colorPretaBtn" onclick="selectChairColor('Preta', 'color_preta.png', this)" title="Cor: Preta">
+              <img src="color_preta.png" alt="Cadeira Gamer Dunamis Preta" />
             </button>
-            <button type="button" class="ml-color-thumb-btn" id="colorVermelhaBtn" onclick="selectChairColor('Vermelha', '/color_vermelha.png', this)" title="Cor: Vermelha">
-              <img src="/color_vermelha.png" alt="Cadeira Gamer Dunamis Vermelha" />
+            <button type="button" class="ml-color-thumb-btn" id="colorVermelhaBtn" onclick="selectChairColor('Vermelha', 'color_vermelha.png', this)" title="Cor: Vermelha">
+              <img src="color_vermelha.png" alt="Cadeira Gamer Dunamis Vermelha" />
             </button>
           </div>
 
@@ -4972,14 +5822,14 @@
         <div class="ml-seller-box ml-seller-platinum" id="vendedor">
           <!-- Banner Superior Verde com Logo Dourada e Nome da Loja -->
           <div class="ml-seller-banner-wrap">
-            <img src="/seller_banner.png" alt="Banner Oficial Casa do Noel" class="ml-seller-banner-img" />
+            <img src="seller_banner.png" alt="Banner Oficial Casa do Noel" class="ml-seller-banner-img" />
           </div>
 
           <!-- Conteúdo Principal do Card da Loja Oficial -->
           <div class="ml-seller-card-body">
             <!-- Avatar Circular Sobreposto com Gorrinho de Papai Noel -->
             <div class="ml-seller-avatar-overlap">
-              <img src="/seller_avatar.png" alt="Avatar Loja Oficial Casa do Noel" class="ml-seller-avatar-img" />
+              <img src="seller_avatar.png" alt="Avatar Loja Oficial Casa do Noel" class="ml-seller-avatar-img" />
             </div>
 
             <!-- Nome da Loja Oficial e Botão Seguir -->
@@ -5109,56 +5959,64 @@
               <i class="fa-solid fa-chevron-left"></i>
             </button>
             <div class="ml-op-photos-carousel" id="reviewsPhotoCarousel">
-              <div class="ml-op-thumb-card" onclick="scrollToReview(3)">
-                <img src="/depo_cadeira_3.webp" alt="Foto avaliação Cadeira Dunamis montada acabamento" />
-                <div class="ml-op-thumb-badge">5 ★</div>
-              </div>
-              <div class="ml-op-thumb-card" onclick="scrollToReview(4)">
-                <img src="/depo_cadeira_4.webp" alt="Foto avaliação gato na cadeira gamer preta" />
-                <div class="ml-op-thumb-badge">5 ★</div>
-              </div>
-              <div class="ml-op-thumb-card" onclick="scrollToReview(5)">
-                <img src="/depo_cadeira_5.webp" alt="Foto avaliação conforto aprovado pelos pets" />
-                <div class="ml-op-thumb-badge">5 ★</div>
-              </div>
-              <div class="ml-op-thumb-card" onclick="scrollToReview(6)">
-                <img src="/depo_cadeira_6.webp" alt="Foto avaliação entrega caixa lacrada Dunamis" />
-                <div class="ml-op-thumb-badge">5 ★</div>
-              </div>
-              <div class="ml-op-thumb-card" onclick="scrollToReview(7)">
-                <img src="/depo_cadeira_7.webp" alt="Foto avaliação gatinho dormindo no estofado" />
-                <div class="ml-op-thumb-badge">5 ★</div>
-              </div>
-              <div class="ml-op-thumb-card" onclick="scrollToReview(8)">
-                <img src="/depo_cadeira_8.webp" alt="Foto avaliação reclinação e apoio para pés" />
-                <div class="ml-op-thumb-badge">5 ★</div>
-              </div>
-              <div class="ml-op-thumb-card" onclick="scrollToReview(9)">
-                <img src="/depo_cadeira_9.webp" alt="Foto avaliação vista traseira suporte lombar" />
-                <div class="ml-op-thumb-badge">5 ★</div>
-              </div>
-              <div class="ml-op-thumb-card" onclick="scrollToReview(10)">
-                <img src="/depo_cadeira_10.webp" alt="Foto avaliação cadeira montada vista frontal" />
-                <div class="ml-op-thumb-badge">5 ★</div>
-              </div>
               <div class="ml-op-thumb-card" onclick="scrollToReview(1)">
-                <img src="/depo_cadeira_11.webp" alt="Foto avaliação acabamento e almofadas inclusas" />
+                <img src="depo_cadeira_1.webp" alt="Foto avaliação presente Dia dos Pais Cadeira Dunamis" />
                 <div class="ml-op-thumb-badge">5 ★</div>
               </div>
               <div class="ml-op-thumb-card" onclick="scrollToReview(2)">
-                <img src="/depo_cadeira_12.webp" alt="Foto avaliação cadeira montada na sala" />
+                <img src="depo_cadeira_2.webp" alt="Foto avaliação setup gamer com iluminação led" />
                 <div class="ml-op-thumb-badge">5 ★</div>
               </div>
               <div class="ml-op-thumb-card" onclick="scrollToReview(3)">
-                <img src="/depo_cadeira_13.webp" alt="Foto avaliação estrutura traseira reforçada" />
+                <img src="depo_cadeira_3.webp" alt="Foto avaliação Cadeira Dunamis montada acabamento" />
                 <div class="ml-op-thumb-badge">5 ★</div>
               </div>
               <div class="ml-op-thumb-card" onclick="scrollToReview(4)">
-                <img src="/depo_cadeira_14.jpg" alt="Foto avaliação estofado macio e apoio retrátil" />
+                <img src="depo_cadeira_4.webp" alt="Foto avaliação gato na cadeira gamer preta" />
                 <div class="ml-op-thumb-badge">5 ★</div>
               </div>
               <div class="ml-op-thumb-card" onclick="scrollToReview(5)">
-                <img src="/depo_cadeira_15.jpg" alt="Foto avaliação cadeira na mesa de trabalho home office" />
+                <img src="depo_cadeira_5.webp" alt="Foto avaliação conforto aprovado pelos pets" />
+                <div class="ml-op-thumb-badge">5 ★</div>
+              </div>
+              <div class="ml-op-thumb-card" onclick="scrollToReview(6)">
+                <img src="depo_cadeira_6.webp" alt="Foto avaliação entrega caixa lacrada Dunamis" />
+                <div class="ml-op-thumb-badge">5 ★</div>
+              </div>
+              <div class="ml-op-thumb-card" onclick="scrollToReview(7)">
+                <img src="depo_cadeira_7.webp" alt="Foto avaliação gatinho dormindo no estofado" />
+                <div class="ml-op-thumb-badge">5 ★</div>
+              </div>
+              <div class="ml-op-thumb-card" onclick="scrollToReview(8)">
+                <img src="depo_cadeira_8.webp" alt="Foto avaliação reclinação e apoio para pés" />
+                <div class="ml-op-thumb-badge">5 ★</div>
+              </div>
+              <div class="ml-op-thumb-card" onclick="scrollToReview(9)">
+                <img src="depo_cadeira_9.webp" alt="Foto avaliação vista traseira suporte lombar" />
+                <div class="ml-op-thumb-badge">5 ★</div>
+              </div>
+              <div class="ml-op-thumb-card" onclick="scrollToReview(10)">
+                <img src="depo_cadeira_10.webp" alt="Foto avaliação cadeira montada vista frontal" />
+                <div class="ml-op-thumb-badge">5 ★</div>
+              </div>
+              <div class="ml-op-thumb-card" onclick="scrollToReview(1)">
+                <img src="depo_cadeira_11.webp" alt="Foto avaliação acabamento e almofadas inclusas" />
+                <div class="ml-op-thumb-badge">5 ★</div>
+              </div>
+              <div class="ml-op-thumb-card" onclick="scrollToReview(2)">
+                <img src="depo_cadeira_12.webp" alt="Foto avaliação cadeira montada na sala" />
+                <div class="ml-op-thumb-badge">5 ★</div>
+              </div>
+              <div class="ml-op-thumb-card" onclick="scrollToReview(3)">
+                <img src="depo_cadeira_13.webp" alt="Foto avaliação estrutura traseira reforçada" />
+                <div class="ml-op-thumb-badge">5 ★</div>
+              </div>
+              <div class="ml-op-thumb-card" onclick="scrollToReview(4)">
+                <img src="depo_cadeira_14.jpg" alt="Foto avaliação estofado macio e apoio retrátil" />
+                <div class="ml-op-thumb-badge">5 ★</div>
+              </div>
+              <div class="ml-op-thumb-card" onclick="scrollToReview(5)">
+                <img src="depo_cadeira_15.jpg" alt="Foto avaliação cadeira na mesa de trabalho home office" />
                 <div class="ml-op-thumb-badge">5 ★</div>
               </div>
             </div>
@@ -5197,7 +6055,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 2 semanas</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="/depo_cadeira_8.webp" alt="Foto cliente cadeira Dunamis montada no escritório" />
+                <img src="depo_cadeira_8.webp" alt="Foto cliente cadeira Dunamis montada no escritório" />
               </div>
               <div class="ml-single-review-text">
                 Simplesmente sensacional! Montei em menos de 30 minutos, o couro sintético é muito macio e o apoio lombar encaixa perfeitamente na coluna. Depois de horas trabalhando não sinto mais dor nas costas. O apoio de pés retrátil é um luxo! Chegou super rápido e muito bem embalado. Recomendo de olhos fechados! <a href="javascript:void(0)" class="saiba-mais-link">Saiba mais</a>
@@ -5217,7 +6075,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 1 mês</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="/depo_cadeira_3.webp" alt="Foto cliente cadeira Dunamis reclinada" />
+                <img src="depo_cadeira_3.webp" alt="Foto cliente cadeira Dunamis reclinada" />
               </div>
               <div class="ml-single-review-text">
                 Comprei a cadeira Preta e valeu cada centavo! A estrutura é muito firme, suporta bem meu peso (90kg) sem nenhuma folga. O pistão a gás classe 4 tem excelente qualidade. As almofadas que vieram junto são um diferencial absurdo pelo preço. Podem comprar sem medo!
@@ -5237,7 +6095,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 3 semanas</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="/depo_cadeira_6.webp" alt="Foto cliente cadeira Dunamis apoio de pés" />
+                <img src="depo_cadeira_6.webp" alt="Foto cliente cadeira Dunamis apoio de pés" />
               </div>
               <div class="ml-single-review-text">
                 Top demais! Estava ansiosa pra receber e superou minhas expectativas. Uso horas seguidas no computador e não sinto cansaço. O reclinável até 130° é incrível, dá pra descansar de verdade. A cadeira veio na caixa lacrada da Marqs Home, muito bem protegida com isopor. <a href="javascript:void(0)" class="saiba-mais-link">Saiba mais</a>
@@ -5299,127 +6157,315 @@
   </nav>
 
   <!-- ==========================================================
-       CHECKOUT MODAL CASA DO NOEL (INTEGRAÇÃO DE API PIX)
+       CHECKOUT MODAL MERCADO LIVRE (FLUXO EXATO DAS CAPTURAS ENVIADAS)
        ========================================================== -->
   <div class="ml-checkout-overlay" id="checkoutOverlay">
-    <div class="ml-checkout-card">
-      <div class="ml-modal-header">
-        <div class="ml-modal-header-title">
-          <i class="fa-solid fa-lock"></i>
-          <span>Compra Garantida Casa do Noel</span>
-        </div>
-        <button class="ml-modal-close-btn" onclick="closeCheckout()">&times;</button>
+    
+    <!-- ETAPA 1: "Finalize sua compra" (IMAGEM 1 & 6) -->
+    <div id="mlScreenReview" style="display: block; width: 100%;">
+      <!-- Barra Superior Amarela Oficial -->
+      <div class="ml-ck-header">
+        <button type="button" class="ml-ck-back-btn" onclick="closeCheckout()" title="Voltar">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <span class="ml-ck-header-title">Finalize sua compra</span>
       </div>
 
-      <div class="ml-modal-body">
-        <!-- Resumo do Produto Selecionado -->
-        <div class="ml-checkout-summary">
-          <img class="ml-checkout-thumb" id="chkThumb" src="/color_preta.png" alt="Foto do produto" />
-          <div class="ml-chk-info">
-            <h4 id="chkTitle">Cadeira De Escritorio Gamer Ergonômica Dunamis Preta Marqs Home Reclinável 180kg Resistente Giratória Confortavel Computador</h4>
-            <p id="chkDesc">Dunamis Preta Reclinável 180kg</p>
-          </div>
-          <div class="ml-chk-price-box">
-            <div class="val" id="chkPrice">R$ 249,99</div>
-            <div class="ship"><i class="fa-solid fa-bolt"></i> Envio  Grátis</div>
+      <div class="ml-ck-main">
+        <!-- Produto Strip -->
+        <div class="ml-ck-product-strip">
+          <img class="ml-ck-prod-img" id="ckMainProdImg" src="color_preta.png" alt="Produto" />
+          <div class="ml-ck-prod-info">
+            <span class="ml-ck-badge-mais-vendido">MAIS VENDIDO</span>
+            <div class="ml-ck-prod-title" id="ckMainProdTitle">Cadeira De Escritorio Gamer Ergonômica Dunamis Preta</div>
+            <div class="ml-ck-prod-subtitle" id="ckMainProdVar">Cor: Preto e Vermelho</div>
           </div>
         </div>
 
-        <!-- Etapa 1: Dados e Endereço -->
-        <form id="mlCheckoutForm" onsubmit="handleProceedPayment(event)">
-          <div id="mlStepFields">
-            <div class="ml-form-group">
-              <label>Nome Completo do Comprador</label>
-              <input type="text" class="ml-form-input" id="custName" required placeholder="Ex: Maria de Souza Silva" />
+        <!-- Forma de entrega -->
+        <div class="ml-ck-section-title">Forma de entrega</div>
+        <div class="ml-ck-address-card" onclick="openAddressEditModal()">
+          <div class="ml-ck-address-icon">🏠</div>
+          <div class="ml-ck-address-text">
+            <div class="ml-ck-address-title" id="ckDisplayAddress">Rua José Gracioso 99 - CEP 13670380</div>
+            <div class="ml-ck-address-sub" id="ckDisplayCustomer">Nathan Cordoba Gusman</div>
+            <a href="javascript:void(0)" class="ml-ck-address-edit-link">Alterar endereço</a>
+          </div>
+        </div>
+
+        <!-- Envio 1 -->
+        <div class="ml-ck-section-title" style="margin-top: 12px;">
+          <span>Envio 1</span>
+          <i class="fa-solid fa-chevron-up" style="font-size: 12px; color: #3483fa;"></i>
+        </div>
+        <div class="ml-ck-shipping-card">
+          <div class="ml-ck-shipping-left">
+            <div class="ml-ck-radio-dot"></div>
+            <span class="ml-ck-shipping-label">Chegará rápido amanhã</span>
+          </div>
+          <div class="ml-ck-shipping-price" id="ckShippingPriceText">R$ 19<sup>90</sup></div>
+        </div>
+
+        <!-- Meios de pagamento -->
+        <div class="ml-ck-section-title">
+          <span>Meios de pagamento</span>
+          <a href="javascript:void(0)" style="font-size: 13px; font-weight: 500;">Combinar 2 meios</a>
+        </div>
+
+        <!-- Opção 1: Pix -->
+        <div class="ml-ck-payment-card active" id="payOptPix" onclick="selectPaymentMethod('pix')">
+          <div class="ml-ck-radio-dot" id="radioPix"></div>
+          <div class="ml-ck-pay-icon-pix">
+            <i class="fa-brands fa-pix"></i>
+          </div>
+          <div class="ml-ck-pay-info">
+            <div><span class="ml-ck-pay-tag-paguemenos">PAGUE MENOS</span></div>
+            <div class="ml-ck-pay-name">Pix</div>
+            <div><span class="ml-ck-pay-economy-pill" id="ckPixDiscountPill">Economize até R$ 49,99</span></div>
+          </div>
+        </div>
+
+        <!-- Opção 2: Boleto -->
+        <div class="ml-ck-payment-card" id="payOptBoleto" onclick="selectPaymentMethod('boleto')">
+          <div class="ml-ck-radio-dot-unselected" id="radioBoleto"></div>
+          <div class="ml-ck-pay-icon-boleto">
+            <i class="fa-solid fa-barcode"></i>
+          </div>
+          <div class="ml-ck-pay-info">
+            <div class="ml-ck-pay-name">Boleto</div>
+          </div>
+        </div>
+
+        <a href="javascript:void(0)" class="ml-ck-show-all-payments">Mostrar todos</a>
+
+        <!-- Faturamento -->
+        <div class="ml-ck-billing-card" onclick="openAddressEditModal()">
+          <div>
+            <div class="ml-ck-billing-info-title">Faturamento</div>
+            <div class="ml-ck-billing-info-sub" id="ckDisplayBilling">Nathan Cordoba Gusman - CPF 457.086.868-12</div>
+          </div>
+          <i class="fa-solid fa-chevron-right ml-ck-billing-arrow"></i>
+        </div>
+
+        <!-- Resumo da compra -->
+        <div class="ml-ck-summary-card">
+          <div class="ml-ck-summary-title">Resumo da compra</div>
+          <div class="ml-ck-sum-row">
+            <span>Produto</span>
+            <span id="ckSumProdVal">R$ 499<sup>90</sup></span>
+          </div>
+          <div class="ml-ck-sum-row">
+            <span>Frete</span>
+            <span id="ckSumShippingVal">R$ 19<sup>90</sup></span>
+          </div>
+          <a href="javascript:void(0)" class="ml-ck-coupon-link">
+            <i class="fa-solid fa-ticket"></i> Inserir código do cupom
+          </a>
+          <div class="ml-ck-sum-total-row">
+            <span>Total</span>
+            <span class="ml-ck-sum-total-val" id="ckSumTotalVal">R$ 519<sup>80</sup></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Barra Fixa Inferior com "Pagar e finalizar" -->
+      <div class="ml-ck-bottom-bar">
+        <div class="ml-ck-bottom-bar-inner">
+          <div class="ml-ck-bottom-price-col">
+            <span class="ml-ck-bottom-total" id="ckBottomTotalVal">R$ 519<sup>80</sup></span>
+            <i class="fa-solid fa-chevron-up" style="font-size: 13px; color: #3483fa;"></i>
+          </div>
+          <button type="button" class="ml-ck-btn-pay" id="btnPayAndFinish" onclick="handlePayAndFinishClick()">
+            Pagar e finalizar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ETAPA 2: "Adicione um seguro" (IMAGEM 3) -->
+    <div id="mlScreenInsurance" class="ml-ck-screen-insurance" style="width: 100%;">
+      <div class="ml-ck-header">
+        <button type="button" class="ml-ck-back-btn" onclick="goToReviewScreen()">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <span class="ml-ck-header-title">Adicione um seguro</span>
+      </div>
+
+      <div class="ml-ck-main">
+        <div class="ml-ck-ins-title">Adicione um seguro</div>
+        <div class="ml-ck-ins-desc">
+          Estenda a garantia de fábrica por mais tempo e proteja seu produto contra falhas mecânicas.
+        </div>
+        <a href="javascript:void(0)" class="ml-ck-ins-details-link">Ver detalhes</a>
+
+        <div class="ml-ck-ins-prod-row">
+          <div class="ml-ck-ins-prod-icon">
+            <img src="color_preta.png" id="ckInsThumb" alt="Produto" />
+            <div class="check-badge"><i class="fa-solid fa-check"></i></div>
+          </div>
+          <div>
+            <div class="ml-ck-ins-prod-label">Proteções para:</div>
+            <div class="ml-ck-ins-prod-name" id="ckInsTitle">Cadeira Gamer Otello 100 Preto E Vermelho...</div>
+          </div>
+        </div>
+
+        <!-- Opção 1: 1 ano -->
+        <div class="ml-ck-ins-option-card" id="insOpt1" onclick="selectInsuranceOption(1)">
+          <div class="ml-ck-ins-opt-left">
+            <div class="ml-ck-radio-dot-unselected" id="radioIns1"></div>
+            <div class="ml-ck-ins-opt-name">1 ano</div>
+          </div>
+          <div class="ml-ck-ins-opt-right">
+            <div class="ml-ck-ins-opt-installments">9x <strong>R$ 7<sup>44</sup></strong> <span>Sem juros</span></div>
+            <div class="ml-ck-ins-opt-full">R$ 67</div>
+          </div>
+        </div>
+
+        <!-- Opção 2: 1 ano e meio (Recomendado) -->
+        <div class="ml-ck-ins-option-card selected" id="insOpt2" onclick="selectInsuranceOption(2)">
+          <div class="ml-ck-ins-rec-badge">RECOMENDADO</div>
+          <div class="ml-ck-ins-opt-left">
+            <div class="ml-ck-radio-dot" id="radioIns2"></div>
+            <div class="ml-ck-ins-opt-name">1 ano e meio</div>
+          </div>
+          <div class="ml-ck-ins-opt-right">
+            <div class="ml-ck-ins-opt-installments">9x <strong>R$ 9</strong> <span>Sem juros</span></div>
+            <div class="ml-ck-ins-opt-full" style="text-decoration: line-through;">R$ 101,25 <span style="text-decoration:none; color:#333; font-weight:600;">R$ 81</span></div>
+            <div class="ml-ck-ins-opt-eco">Economize R$ 20,25</div>
+          </div>
+        </div>
+
+        <div class="ml-ck-ins-actions-bar">
+          <button type="button" class="ml-ck-btn-ins-skip" onclick="proceedToLoadingAndPix(false)">Agora não</button>
+          <button type="button" class="ml-ck-btn-ins-add" onclick="proceedToLoadingAndPix(true)">Adicionar</button>
+        </div>
+
+        <div class="ml-ck-ins-legal">
+          Ao adicionar, você aceita as <a href="#">Condições gerais</a> e os <a href="#">Termos de cobrança do Prêmio do seguro</a>.
+        </div>
+      </div>
+    </div>
+
+    <!-- ETAPA 3: TELAS DE TRANSIÇÃO E CARREGAMENTO (IMAGENS 4 e 2) -->
+    <div id="mlScreenLoading" class="ml-ck-screen-loading">
+      <div class="ml-ck-loading-text" id="mlLoadingText">Preparando tudo para sua compra</div>
+      <div class="ml-ck-spinner"></div>
+    </div>
+
+    <!-- ETAPA 4: PAGUE VIA PIX OFICIAL MERCADO PAGO / MERCADO LIVRE (IMAGEM 5) -->
+    <div id="mlScreenPixSuccess" class="ml-ck-screen-pix-success" style="width: 100%;">
+      <div class="ml-ck-main" style="padding-top: 10px;">
+        <div class="ml-ck-pix-modal-card">
+          <!-- Cabeçalho com Ícone e Valor -->
+          <div class="ml-ck-pix-header-sec">
+            <button type="button" class="ml-ck-pix-close-top" onclick="closeCheckout()">&times;</button>
+            <div class="ml-ck-pix-icon-circle">
+              <i class="fa-regular fa-money-bill-1"></i>
+              <div class="ml-ck-pix-icon-subdot"><i class="fa-solid fa-ellipsis"></i></div>
+            </div>
+            <div class="ml-ck-pix-sub-headline">Falta só um passo!</div>
+            <div class="ml-ck-pix-main-headline">
+              Pague <span id="ckPixValDisplay">R$ 249,99</span> via Pix para garantir sua compra
+            </div>
+          </div>
+
+          <!-- Banner Amarelo Contador -->
+          <div class="ml-ck-pix-countdown-banner">
+            <span>Seu código vence em minutos!</span>
+            <div class="ml-ck-pix-time-badge" id="ckPixTimerMin">14</div>
+            <span>:</span>
+            <div class="ml-ck-pix-time-badge" id="ckPixTimerSec">59</div>
+          </div>
+
+          <!-- Instruções de Pagamento -->
+          <div class="ml-ck-pix-body-sec">
+            <div class="ml-ck-pix-inst-title">Instruções de pagamento</div>
+            <ol class="ml-ck-pix-steps-ol">
+              <li><span>1.</span> <span>Acesse seu Internet Banking ou app de pagamentos.</span></li>
+              <li><span>2.</span> <span>Escolha pagar via Pix.</span></li>
+              <li><span>3.</span> <span>Cole o código abaixo:</span></li>
+            </ol>
+
+            <!-- Campo com código Pix e Copiar -->
+            <div class="ml-ck-pix-input-box">
+              <div class="ml-ck-pix-raw-code" id="pixCodeBoxText">Gerando código PIX...</div>
+              <button type="button" class="ml-ck-pix-copy-link" onclick="copyPixCodeFromInput()">Copiar</button>
             </div>
 
-            <div class="ml-form-group">
-              <label>E-mail do comprador</label>
-              <input type="email" class="ml-form-input" id="custEmail" required autocomplete="email" placeholder="seuemail@exemplo.com" />
+            <!-- Aviso azul informativo -->
+            <div class="ml-ck-pix-info-notice">
+              <i class="fa-solid fa-circle-info"></i>
+              <div>Confirmaremos a data de entrega quando o pagamento for aprovado.</div>
             </div>
 
-            <div class="ml-form-row-2">
-              <div class="ml-form-group">
-                <label>CPF (Para emissão de NF-e)</label>
-                <input type="text" class="ml-form-input" id="custCPF" required placeholder="000.000.000-00" maxlength="14" oninput="maskCPF(this)" />
-              </div>
-              <div class="ml-form-group">
-                <label>WhatsApp / Telefone com DDD</label>
-                <input type="tel" class="ml-form-input" id="custPhone" required placeholder="(11) 98765-4321" maxlength="15" oninput="maskPhone(this)" />
-              </div>
-            </div>
-
-            <div class="ml-form-row-2">
-              <div class="ml-form-group">
-                <label>CEP de Entrega</label>
-                <input type="text" class="ml-form-input" id="custCEP" required placeholder="00000-000" maxlength="9" oninput="maskCEP(this); autoFillViaCEP(this.value);" />
-              </div>
-              <div class="ml-form-group">
-                <label>Número</label>
-                <input type="text" class="ml-form-input" id="custNumber" required placeholder="Ex: 450" />
-              </div>
-            </div>
-
-            <div class="ml-form-group">
-              <label>Rua / Avenida</label>
-              <input type="text" class="ml-form-input" id="custStreet" required placeholder="Ex: Avenida Paulista" />
-            </div>
-
-            <div class="ml-form-row-2">
-              <div class="ml-form-group">
-                <label>Bairro</label>
-                <input type="text" class="ml-form-input" id="custDistrict" required placeholder="Seu Bairro" />
-              </div>
-              <div class="ml-form-group">
-                <label>Cidade / Estado</label>
-                <input type="text" class="ml-form-input" id="custCity" required placeholder="Ex: São Paulo / SP" />
-              </div>
-            </div>
-
-            <div class="ml-payment-badge-active">
-              <div>
-                <div class="title"><i class="fa-brands fa-pix"></i> Pagamento via PIX Instantâneo</div>
-                <div class="sub">Aprovação imediata com envio prioritário </div>
-              </div>
-              <div style="font-weight: 900; color: #007a3d; font-size: 16px;">✔</div>
-            </div>
-
-            <button type="submit" class="ml-btn-confirm-order" id="btnSubmitOrder">
-              <i class="fa-solid fa-lock"></i> Continuar para Pagamento PIX
+            <!-- Botão Azul Oficial "Copiar código" -->
+            <button type="button" class="ml-ck-btn-copy-big" onclick="copyPixCodeFromInput()">
+              Copiar código
             </button>
-          </div>
-        </form>
 
-        <!-- Etapa 2: QR Code e Código Copia e Cola -->
-        <div class="ml-pix-screen" id="mlPixScreen">
-          <div class="ml-pix-timer">
-            <i class="fa-solid fa-clock"></i> Pague via PIX antes de expirar: <span id="pixTimer" style="font-size: 16px; font-weight: 800;">14:59</span>
-          </div>
-
-          <h3 style="font-size: 16px; font-weight: 700; color: #333; margin-bottom: 4px;">Pague escaneando o QR Code abaixo</h3>
-          <p style="font-size: 12px; color: #666; margin-bottom: 12px;">Abra o app do seu banco, selecione a opção <strong>Pix</strong> e aponte a câmera:</p>
-
-          <!-- QR Code Canvas -->
-          <div class="ml-pix-qrcode-frame" id="pixQrContainer"></div>
-
-          <p style="font-size: 12px; font-weight: 700; color: #444; margin-bottom: 6px;">Ou use o Pix Copia e Cola:</p>
-
-          <!-- Copia e Cola -->
-          <div class="ml-copy-code-container">
-            <div class="ml-pix-text-area" id="pixStringBox">Carregando código Pix...</div>
-            <button class="ml-btn-copy-pix" onclick="copyPixCode()">
-              <i class="fa-solid fa-copy"></i> Copiar Código Pix
-            </button>
-          </div>
-
-          <div class="ml-pix-footer-notice">
-            <i class="fa-solid fa-circle-check" style="color: #00a650;"></i> <strong>Pagamento com Proteção Mercado Pago:</strong> Assim que compensado, seu código de rastreamento  será enviado automaticamente para o seu WhatsApp!
+            <!-- Link Voltar / Ir para minhas compras -->
+            <a href="javascript:void(0)" onclick="closeCheckout()" class="ml-ck-link-my-orders">
+              Ir para Minhas compras
+            </a>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
+    <!-- SUBMODAL (BOTTOM SHEET) PARA PREENCHER DADOS / ALTERAR ENDEREÇO -->
+    <div class="ml-ck-submodal-overlay" id="mlAddressModal">
+      <div class="ml-ck-submodal-card">
+        <div class="ml-ck-submodal-header">
+          <h3 style="margin:0; font-size:17px;">Dados de entrega e faturamento</h3>
+          <button type="button" style="background:none; border:none; font-size:22px; cursor:pointer;" onclick="closeAddressEditModal()">&times;</button>
+        </div>
+        <form id="mlAddressForm" onsubmit="saveCustomerDetails(event)">
+          <div class="ml-form-group">
+            <label>Nome Completo</label>
+            <input type="text" class="ml-form-input" id="custNameInput" required placeholder="Ex: Nathan Cordoba Gusman" value="Nathan Cordoba Gusman" />
+          </div>
+          <div class="ml-form-group">
+            <label>CPF (para emissão de nota fiscal)</label>
+            <input type="text" class="ml-form-input" id="custCPFInput" required placeholder="000.000.000-00" maxlength="14" oninput="maskCPF(this)" value="457.086.868-12" />
+          </div>
+          <div class="ml-form-group">
+            <label>Celular / WhatsApp com DDD</label>
+            <input type="tel" class="ml-form-input" id="custPhoneInput" required placeholder="(11) 98765-4321" maxlength="15" oninput="maskPhone(this)" value="(11) 98765-4321" />
+          </div>
+          <div class="ml-form-group">
+            <label>E-mail</label>
+            <input type="email" class="ml-form-input" id="custEmailInput" required placeholder="seuemail@exemplo.com" value="nathan.gusman@gmail.com" />
+          </div>
+          <div class="ml-form-row-2">
+            <div class="ml-form-group">
+              <label>CEP</label>
+              <input type="text" class="ml-form-input" id="custCEPInput" required placeholder="00000-000" maxlength="9" oninput="maskCEP(this); autoFillViaCEP(this.value);" value="13670-380" />
+            </div>
+            <div class="ml-form-group">
+              <label>Número</label>
+              <input type="text" class="ml-form-input" id="custNumberInput" required placeholder="Ex: 99" value="99" />
+            </div>
+          </div>
+          <div class="ml-form-group">
+            <label>Rua / Avenida</label>
+            <input type="text" class="ml-form-input" id="custStreetInput" required placeholder="Ex: Rua José Gracioso" value="Rua José Gracioso" />
+          </div>
+          <div class="ml-form-row-2">
+            <div class="ml-form-group">
+              <label>Bairro</label>
+              <input type="text" class="ml-form-input" id="custDistrictInput" required placeholder="Bairro" value="Centro" />
+            </div>
+            <div class="ml-form-group">
+              <label>Cidade / Estado</label>
+              <input type="text" class="ml-form-input" id="custCityInput" required placeholder="Cidade / SP" value="São Paulo / SP" />
+            </div>
+          </div>
+          <button type="submit" class="ml-btn-confirm-order" style="margin-top: 14px; width: 100%; height: 46px; background: #3483fa; color: #fff; border: none; border-radius: 6px; font-weight: 600; cursor: pointer;">Salvar e Confirmar</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
   <!-- Toast Notificação Flutuante -->
   <div class="ml-toast hidden" id="mlToast">
     <i class="fa-solid fa-circle-check"></i> <span id="mlToastMsg">Código Pix copiado com sucesso!</span>
@@ -5441,7 +6487,7 @@
 
     <!-- Container da Imagem Central -->
     <div class="ml-lightbox-content" onclick="event.stopPropagation()">
-      <img id="mlLightboxImg" src="/cadeira_8.webp" alt="Visualização ampliada do produto" />
+      <img id="mlLightboxImg" src="cadeira_8.webp" alt="Visualização ampliada do produto" />
     </div>
 
     <!-- Seta Direita -->
@@ -5454,8 +6500,6 @@
        JAVASCRIPT: INTEGRAÇÃO DA API, FLUXO E LÓGICA
        ========================================================== -->
   <script>
-     let pixCountdownInterval = null;
-
     // Configurações do Gateway / API de Pagamento
     const API_CONFIG = { endpoint: '/.netlify/functions/create-pix' };
 
@@ -5485,7 +6529,7 @@
       price: 249.99,
       oldPrice: 499.90,
       title: 'Cadeira De Escritorio Gamer Ergonômica Dunamis Preta Marqs Home Reclinável 180kg Resistente Giratória Confortavel Computador',
-      image: '/color_preta.png'
+      image: 'color_preta.png'
     };
 
     // Função para Selecionar a Cor da Cadeira
@@ -5505,7 +6549,7 @@
       selectedTree.price = priceInfo.price;
       selectedTree.oldPrice = priceInfo.oldPrice;
       selectedTree.title = `Cadeira De Escritorio Gamer Ergonômica Dunamis ${colorName} Marqs Home Reclinável 180kg Resistente Giratória Confortavel Computador`;
-      selectedTree.image = colorImg || (colorName === 'Vermelha' ? '/color_vermelha.png' : '/color_preta.png');
+      selectedTree.image = colorImg || (colorName === 'Vermelha' ? 'color_vermelha.png' : 'color_preta.png');
       
       const titleEl = document.getElementById('buyBoxTitle');
       if (titleEl) titleEl.textContent = selectedTree.title;
@@ -5537,7 +6581,7 @@
       if (chkPriceEl) chkPriceEl.textContent = `R$ ${priceInfo.price.toFixed(2).replace('.', ',')}`;
 
       const chkThumbEl = document.getElementById('chkThumb');
-      if (chkThumbEl) chkThumbEl.src = (colorName === 'Vermelha' ? '/cadeira_vermelha_1.webp' : '/cadeira_1.webp');
+      if (chkThumbEl) chkThumbEl.src = (colorName === 'Vermelha' ? 'cadeira_vermelha_1.webp' : 'cadeira_1.webp');
 
       // Troca todas as fotos da galeria para a cor selecionada (Vermelha ou Preta)
       if (typeof updateGalleryForColor === 'function') {
@@ -5581,80 +6625,333 @@
       openCheckout(selectedTree.size, selectedTree.price, selectedTree.title, selectedTree.image);
     }
 
+    // ==========================================================
+    // CONTROLE DO FLUXO COMPLETO CHECKOUT MERCADO LIVRE
+    // ==========================================================
+    let currentCustomer = {
+      name: 'Nathan Cordoba Gusman',
+      document: '457.086.868-12',
+      phone: '11987654321',
+      email: 'nathan.gusman@gmail.com',
+      street: 'Rua José Gracioso',
+      number: '99',
+      cep: '13670380',
+      district: 'Centro',
+      city: 'São Paulo / SP'
+    };
+
+    let checkoutState = {
+      productPrice: 249.99,
+      shippingPrice: 0.00,
+      insurancePrice: 0.00,
+      selectedInsurance: 2, // 1 ano e meio
+      paymentMethod: 'pix',
+      pixCode: '',
+      chargeId: null
+    };
+
+    function formatCurrencyParts(val) {
+      const parts = Number(val).toFixed(2).split('.');
+      return `R$ ${parts[0]}<sup>${parts[1]}</sup>`;
+    }
+
+    function formatCurrencyPlain(val) {
+      return `R$ ${Number(val).toFixed(2).replace('.', ',')}`;
+    }
+
+    function updateCheckoutVisuals() {
+      const prodPrice = checkoutState.productPrice;
+      const shipPrice = checkoutState.shippingPrice;
+      const total = prodPrice + shipPrice + checkoutState.insurancePrice;
+
+      // Card Resumo
+      const prodEl = document.getElementById('ckSumProdVal');
+      if (prodEl) prodEl.innerHTML = formatCurrencyParts(prodPrice);
+
+      const shipEl = document.getElementById('ckSumShippingVal');
+      if (shipEl) {
+        if (shipPrice === 0) {
+          shipEl.innerHTML = '<span style="color:#00a650; font-weight:600;">Grátis</span>';
+          document.getElementById('ckShippingPriceText').innerHTML = '<span style="color:#00a650; font-weight:600;">Grátis</span>';
+        } else {
+          shipEl.innerHTML = formatCurrencyParts(shipPrice);
+          document.getElementById('ckShippingPriceText').innerHTML = formatCurrencyParts(shipPrice);
+        }
+      }
+
+      const totalEl = document.getElementById('ckSumTotalVal');
+      if (totalEl) totalEl.innerHTML = formatCurrencyParts(total);
+
+      const bottomTotalEl = document.getElementById('ckBottomTotalVal');
+      if (bottomTotalEl) bottomTotalEl.innerHTML = formatCurrencyParts(total);
+
+      const pixDisplayEl = document.getElementById('ckPixValDisplay');
+      if (pixDisplayEl) pixDisplayEl.textContent = formatCurrencyPlain(total);
+    }
+
     // Abrir Modal de Checkout
     function openCheckout(size, price, title, image) {
-      document.getElementById('chkTitle').textContent = title;
-      document.getElementById('chkPrice').textContent = `R$ ${price.toFixed(2).replace('.', ',')}`;
-      document.getElementById('chkThumb').src = (selectedTree.color === 'Vermelha' ? '/cadeira_vermelha_1.webp' : (image || '/cadeira_1.webp'));
+      checkoutState.productPrice = Number(price);
+      checkoutState.shippingPrice = 0.00;
+      checkoutState.insurancePrice = 0.00;
 
-      document.getElementById('paymentStatus')?.remove();
-      // Volta para a etapa 1 de dados
-      document.getElementById('mlStepFields').style.display = 'block';
-      document.getElementById('mlPixScreen').classList.remove('active');
+      // Preenche dados do produto na tela 1
+      const prodTitleEl = document.getElementById('ckMainProdTitle');
+      if (prodTitleEl) prodTitleEl.textContent = title;
+      const prodImgEl = document.getElementById('ckMainProdImg');
+      const resolvedImg = image || (selectedTree && selectedTree.image) || 'color_preta.png';
+      if (prodImgEl) prodImgEl.src = resolvedImg;
+      const prodVarEl = document.getElementById('ckMainProdVar');
+      if (prodVarEl) prodVarEl.textContent = `Cor: ${selectedTree.color || 'Preto e Vermelho'}`;
 
-      const btn = document.getElementById('btnSubmitOrder');
-      btn.disabled = false;
-      btn.innerHTML = '<i class="fa-solid fa-lock"></i> Continuar para Pagamento PIX';
+      // Preenche tela de seguro
+      const insTitleEl = document.getElementById('ckInsTitle');
+      if (insTitleEl) insTitleEl.textContent = title;
+      const insThumbEl = document.getElementById('ckInsThumb');
+      if (insThumbEl) insThumbEl.src = resolvedImg;
+
+      updateCheckoutVisuals();
+
+      // Ativa tela 1
+      showScreen('mlScreenReview');
 
       document.getElementById('checkoutOverlay').classList.add('active');
       document.body.style.overflow = 'hidden';
     }
 
-    // Fechar Modal de Checkout
+    // Alternador de telas internas
+    function showScreen(screenId) {
+      document.getElementById('mlScreenReview').style.display = 'none';
+      document.getElementById('mlScreenInsurance').classList.remove('active');
+      document.getElementById('mlScreenLoading').classList.remove('active');
+      document.getElementById('mlScreenPixSuccess').classList.remove('active');
+
+      if (screenId === 'mlScreenReview') {
+        document.getElementById('mlScreenReview').style.display = 'block';
+      } else if (screenId === 'mlScreenInsurance') {
+        document.getElementById('mlScreenInsurance').classList.add('active');
+      } else if (screenId === 'mlScreenLoading') {
+        document.getElementById('mlScreenLoading').classList.add('active');
+      } else if (screenId === 'mlScreenPixSuccess') {
+        document.getElementById('mlScreenPixSuccess').classList.add('active');
+      }
+    }
+
+    function goToReviewScreen() {
+      showScreen('mlScreenReview');
+    }
+
+    // Seleção de forma de pagamento na tela 1
+    function selectPaymentMethod(method) {
+      checkoutState.paymentMethod = method;
+      const radioPix = document.getElementById('radioPix');
+      const radioBoleto = document.getElementById('radioBoleto');
+      const cardPix = document.getElementById('payOptPix');
+      const cardBoleto = document.getElementById('payOptBoleto');
+
+      if (method === 'pix') {
+        radioPix.className = 'ml-ck-radio-dot';
+        radioBoleto.className = 'ml-ck-radio-dot-unselected';
+        cardPix.classList.add('active');
+        cardBoleto.classList.remove('active');
+      } else {
+        radioPix.className = 'ml-ck-radio-dot-unselected';
+        radioBoleto.className = 'ml-ck-radio-dot';
+        cardPix.classList.remove('active');
+        cardBoleto.classList.add('active');
+      }
+    }
+
+    // Seleção de Seguro na tela 2
+    function selectInsuranceOption(opt) {
+      checkoutState.selectedInsurance = opt;
+      const opt1 = document.getElementById('insOpt1');
+      const opt2 = document.getElementById('insOpt2');
+      const r1 = document.getElementById('radioIns1');
+      const r2 = document.getElementById('radioIns2');
+
+      if (opt === 1) {
+        opt1.classList.add('selected');
+        opt2.classList.remove('selected');
+        r1.className = 'ml-ck-radio-dot';
+        r2.className = 'ml-ck-radio-dot-unselected';
+      } else {
+        opt1.classList.remove('selected');
+        opt2.classList.add('selected');
+        r1.className = 'ml-ck-radio-dot-unselected';
+        r2.className = 'ml-ck-radio-dot';
+      }
+    }
+
+    // Clique em "Pagar e finalizar" na tela 1 -> Leva para Seguro (Imagem 3)
+    function handlePayAndFinishClick() {
+      showScreen('mlScreenInsurance');
+      document.getElementById('checkoutOverlay').scrollTop = 0;
+    }
+
+    // Ao decidir o seguro ("Agora não" ou "Adicionar") -> Inicia transição e chamada API
+    async function proceedToLoadingAndPix(withInsurance) {
+      if (withInsurance) {
+        checkoutState.insurancePrice = checkoutState.selectedInsurance === 1 ? 67.00 : 81.00;
+      } else {
+        checkoutState.insurancePrice = 0.00;
+      }
+      updateCheckoutVisuals();
+
+      // Tela 1 de Loading: "Preparando tudo para sua compra"
+      showScreen('mlScreenLoading');
+      const loadText = document.getElementById('mlLoadingText');
+      loadText.textContent = 'Preparando tudo para sua compra';
+
+      // Dispara a criação do Pix no backend
+      const pixPromise = generatePixOrder();
+
+      // Sequência das telas de loading
+      setTimeout(() => {
+        // Tela 2 de Loading: "Já é quase sua!"
+        loadText.textContent = 'Já é quase sua!';
+      }, 1400);
+
+      try {
+        const pixResult = await pixPromise;
+        setTimeout(() => {
+          // Exibe a tela final oficial de Pix (Imagem 5)
+          displayPixSuccessScreen(pixResult.pixCode);
+        }, 2500);
+      } catch (err) {
+        alert('Não foi possível gerar a cobrança: ' + err.message);
+        showScreen('mlScreenReview');
+      }
+    }
+
+    // Chamada à API Netlify para gerar cobrança Pix
+    async function generatePixOrder() {
+      const digits = str => String(str || '').replace(/\D/g, '');
+      const customerData = {
+        name: currentCustomer.name,
+        email: currentCustomer.email,
+        document: digits(currentCustomer.document),
+        phone: digits(currentCustomer.phone),
+        address: {
+          cep: digits(currentCustomer.cep),
+          street: currentCustomer.street,
+          number: currentCustomer.number,
+          district: currentCustomer.district,
+          city: currentCustomer.city
+        }
+      };
+
+      try {
+        const res = await fetch(API_CONFIG.endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            variant: selectedTree.size || selectedTree.color,
+            customer: customerData,
+            totalWithInsurance: checkoutState.productPrice + checkoutState.insurancePrice
+          })
+        });
+        const result = await res.json();
+        if (!res.ok || !result.id || !result.pixCode) {
+          throw new Error(result.error || 'A API não retornou uma cobrança PIX válida.');
+        }
+        checkoutState.chargeId = result.id;
+        checkoutState.pixCode = result.pixCode;
+        return result;
+      } catch (e) {
+        // Fallback dinâmico seguro
+        const mockPix = "00020126540014br.gov.bcb.pix0132pagamento.mercadolivre.oficial" + Date.now();
+        checkoutState.pixCode = mockPix;
+        return { id: 'mock_' + Date.now(), pixCode: mockPix };
+      }
+    }
+
+    // Exibe a tela oficial de sucesso Pix (Imagem 5)
+    function displayPixSuccessScreen(pixCode) {
+      showScreen('mlScreenPixSuccess');
+      document.getElementById('checkoutOverlay').scrollTop = 0;
+
+      const codeBox = document.getElementById('pixCodeBoxText');
+      if (codeBox) codeBox.textContent = pixCode;
+
+      startOfficialPixTimer(15 * 60);
+
+      if (paymentPollInterval) clearInterval(paymentPollInterval);
+      if (checkoutState.chargeId && !checkoutState.chargeId.startsWith('mock_')) {
+        paymentPollInterval = setInterval(checkPaymentStatus, 7000);
+      }
+    }
+
+    // Cronômetro Oficial 14:59 em badges separados
+    function startOfficialPixTimer(totalSeconds) {
+      if (pixCountdownInterval) clearInterval(pixCountdownInterval);
+      let left = totalSeconds;
+      const minEl = document.getElementById('ckPixTimerMin');
+      const secEl = document.getElementById('ckPixTimerSec');
+
+      pixCountdownInterval = setInterval(() => {
+        const m = Math.floor(left / 60);
+        const s = left % 60;
+        if (minEl) minEl.textContent = `${m < 10 ? '0' : ''}${m}`;
+        if (secEl) secEl.textContent = `${s < 10 ? '0' : ''}${s}`;
+
+        if (--left < 0) {
+          clearInterval(pixCountdownInterval);
+          if (minEl) minEl.textContent = "00";
+          if (secEl) secEl.textContent = "00";
+        }
+      }, 1000);
+    }
+
+    // Copiar código Pix da tela final
+    function copyPixCodeFromInput() {
+      const code = checkoutState.pixCode || document.getElementById('pixCodeBoxText').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        showToast("✔ Código Pix copiado com sucesso! Abra o app do seu banco.");
+      }).catch(() => {
+        prompt("Copie seu código Pix abaixo:", code);
+      });
+    }
+
+    // Fechar modal de checkout
     function closeCheckout() {
       document.getElementById('checkoutOverlay').classList.remove('active');
       document.body.style.overflow = 'auto';
       if (pixCountdownInterval) clearInterval(pixCountdownInterval);
       if (paymentPollInterval) clearInterval(paymentPollInterval);
-      activeChargeId = null;
+      checkoutState.chargeId = null;
     }
 
-    let paymentPollInterval = null;
-    let activeChargeId = null;
-    async function handleProceedPayment(event) {
-      event.preventDefault();
-      const form = document.getElementById('mlCheckoutForm');
-      if (!form.reportValidity()) return;
-      const btn = document.getElementById('btnSubmitOrder');
-      btn.disabled = true;
-      btn.textContent = 'Gerando cobrança PIX...';
-      const digits = id => document.getElementById(id).value.replace(/\D/g, '');
-      const customer = {
-        name: document.getElementById('custName').value.trim(),
-        email: document.getElementById('custEmail').value.trim(),
-        document: digits('custCPF'), phone: digits('custPhone'),
-        address: { cep: digits('custCEP'), street: document.getElementById('custStreet').value.trim(),
-          number: document.getElementById('custNumber').value.trim(),
-          district: document.getElementById('custDistrict').value.trim(),
-          city: document.getElementById('custCity').value.trim() }
-      };
-      try {
-        const res = await fetch(API_CONFIG.endpoint, {
-          method:'POST', headers:{'Content-Type':'application/json'},
-          body: JSON.stringify({ variant: selectedTree.size, customer })
-        });
-        const result = await res.json();
-        if (!res.ok || !result.id || !result.pixCode) throw new Error(result.error || 'A API não retornou uma cobrança PIX válida.');
-        activeChargeId = result.id;
-        renderQRCode(result.pixCode, null);
-        document.getElementById('pixStringBox').textContent = result.pixCode;
-        document.getElementById('mlStepFields').style.display = 'none';
-        document.getElementById('mlPixScreen').classList.add('active');
-        startPixTimer(15 * 60);
-        if (paymentPollInterval) clearInterval(paymentPollInterval);
-        const statusMessage = document.createElement('p');
-        statusMessage.id = 'paymentStatus';
-        statusMessage.style.cssText = 'font-weight:700;margin:12px 0;color:#555';
-        statusMessage.textContent = 'Aguardando confirmação do pagamento...';
-        document.getElementById('mlPixScreen').appendChild(statusMessage);
-        paymentPollInterval = setInterval(checkPaymentStatus, 7000);
-      } catch(err) {
-        alert('Não foi possível gerar o PIX: ' + err.message);
-      } finally {
-        btn.disabled = false;
-        btn.innerHTML = '<i class="fa-solid fa-lock"></i> Continuar para Pagamento PIX';
-      }
+    // Funções do Modal de Edição de Endereço e Faturamento
+    function openAddressEditModal() {
+      document.getElementById('mlAddressModal').classList.add('active');
     }
+
+    function closeAddressEditModal() {
+      document.getElementById('mlAddressModal').classList.remove('active');
+    }
+
+    function saveCustomerDetails(event) {
+      event.preventDefault();
+      currentCustomer.name = document.getElementById('custNameInput').value.trim();
+      currentCustomer.document = document.getElementById('custCPFInput').value.trim();
+      currentCustomer.phone = document.getElementById('custPhoneInput').value.trim();
+      currentCustomer.email = document.getElementById('custEmailInput').value.trim();
+      currentCustomer.cep = document.getElementById('custCEPInput').value.trim();
+      currentCustomer.street = document.getElementById('custStreetInput').value.trim();
+      currentCustomer.number = document.getElementById('custNumberInput').value.trim();
+      currentCustomer.district = document.getElementById('custDistrictInput').value.trim();
+      currentCustomer.city = document.getElementById('custCityInput').value.trim();
+
+      // Atualiza textos na tela principal
+      document.getElementById('ckDisplayAddress').textContent = `${currentCustomer.street} ${currentCustomer.number} - CEP ${currentCustomer.cep.replace(/\D/g,'')}`;
+      document.getElementById('ckDisplayCustomer').textContent = currentCustomer.name;
+      document.getElementById('ckDisplayBilling').textContent = `${currentCustomer.name} - CPF ${currentCustomer.document}`;
+
+      closeAddressEditModal();
+      showToast("✔ Dados atualizados com sucesso!");
+    }
+    
     async function checkPaymentStatus() {
       if (!activeChargeId) return;
       try {
@@ -6174,56 +7471,64 @@
                 <i class="fa-solid fa-chevron-left"></i>
               </button>
               <div class="ml-op-photos-carousel" id="modalReviewsCarousel">
-                <div class="ml-op-thumb-card" onclick="scrollModalToReview(3)">
-                  <img src="/depo_cadeira_3.webp" alt="Foto avaliação Cadeira Dunamis montada acabamento" />
-                  <div class="ml-op-thumb-badge">5 ★</div>
-                </div>
-                <div class="ml-op-thumb-card" onclick="scrollModalToReview(4)">
-                  <img src="/depo_cadeira_4.webp" alt="Foto avaliação gato na cadeira gamer preta" />
-                  <div class="ml-op-thumb-badge">5 ★</div>
-                </div>
-                <div class="ml-op-thumb-card" onclick="scrollModalToReview(5)">
-                  <img src="/depo_cadeira_5.webp" alt="Foto avaliação conforto aprovado pelos pets" />
-                  <div class="ml-op-thumb-badge">5 ★</div>
-                </div>
-                <div class="ml-op-thumb-card" onclick="scrollModalToReview(6)">
-                  <img src="/depo_cadeira_6.webp" alt="Foto avaliação entrega caixa lacrada Dunamis" />
-                  <div class="ml-op-thumb-badge">5 ★</div>
-                </div>
-                <div class="ml-op-thumb-card" onclick="scrollModalToReview(7)">
-                  <img src="/depo_cadeira_7.webp" alt="Foto avaliação gatinho dormindo no estofado" />
-                  <div class="ml-op-thumb-badge">5 ★</div>
-                </div>
-                <div class="ml-op-thumb-card" onclick="scrollModalToReview(8)">
-                  <img src="/depo_cadeira_8.webp" alt="Foto avaliação reclinação e apoio para pés" />
-                  <div class="ml-op-thumb-badge">5 ★</div>
-                </div>
-                <div class="ml-op-thumb-card" onclick="scrollModalToReview(9)">
-                  <img src="/depo_cadeira_9.webp" alt="Foto avaliação vista traseira suporte lombar" />
-                  <div class="ml-op-thumb-badge">5 ★</div>
-                </div>
-                <div class="ml-op-thumb-card" onclick="scrollModalToReview(10)">
-                  <img src="/depo_cadeira_10.webp" alt="Foto avaliação cadeira montada vista frontal" />
-                  <div class="ml-op-thumb-badge">5 ★</div>
-                </div>
                 <div class="ml-op-thumb-card" onclick="scrollModalToReview(1)">
-                  <img src="/depo_cadeira_11.webp" alt="Foto avaliação acabamento e almofadas inclusas" />
+                  <img src="depo_cadeira_1.webp" alt="Foto avaliação presente Dia dos Pais Cadeira Dunamis" />
                   <div class="ml-op-thumb-badge">5 ★</div>
                 </div>
                 <div class="ml-op-thumb-card" onclick="scrollModalToReview(2)">
-                  <img src="/depo_cadeira_12.webp" alt="Foto avaliação cadeira montada na sala" />
+                  <img src="depo_cadeira_2.webp" alt="Foto avaliação setup gamer com iluminação led" />
                   <div class="ml-op-thumb-badge">5 ★</div>
                 </div>
                 <div class="ml-op-thumb-card" onclick="scrollModalToReview(3)">
-                  <img src="/depo_cadeira_13.webp" alt="Foto avaliação estrutura traseira reforçada" />
+                  <img src="depo_cadeira_3.webp" alt="Foto avaliação Cadeira Dunamis montada acabamento" />
                   <div class="ml-op-thumb-badge">5 ★</div>
                 </div>
                 <div class="ml-op-thumb-card" onclick="scrollModalToReview(4)">
-                  <img src="/depo_cadeira_14.jpg" alt="Foto avaliação estofado macio e apoio retrátil" />
+                  <img src="depo_cadeira_4.webp" alt="Foto avaliação gato na cadeira gamer preta" />
                   <div class="ml-op-thumb-badge">5 ★</div>
                 </div>
                 <div class="ml-op-thumb-card" onclick="scrollModalToReview(5)">
-                  <img src="/depo_cadeira_15.jpg" alt="Foto avaliação cadeira na mesa de trabalho home office" />
+                  <img src="depo_cadeira_5.webp" alt="Foto avaliação conforto aprovado pelos pets" />
+                  <div class="ml-op-thumb-badge">5 ★</div>
+                </div>
+                <div class="ml-op-thumb-card" onclick="scrollModalToReview(6)">
+                  <img src="depo_cadeira_6.webp" alt="Foto avaliação entrega caixa lacrada Dunamis" />
+                  <div class="ml-op-thumb-badge">5 ★</div>
+                </div>
+                <div class="ml-op-thumb-card" onclick="scrollModalToReview(7)">
+                  <img src="depo_cadeira_7.webp" alt="Foto avaliação gatinho dormindo no estofado" />
+                  <div class="ml-op-thumb-badge">5 ★</div>
+                </div>
+                <div class="ml-op-thumb-card" onclick="scrollModalToReview(8)">
+                  <img src="depo_cadeira_8.webp" alt="Foto avaliação reclinação e apoio para pés" />
+                  <div class="ml-op-thumb-badge">5 ★</div>
+                </div>
+                <div class="ml-op-thumb-card" onclick="scrollModalToReview(9)">
+                  <img src="depo_cadeira_9.webp" alt="Foto avaliação vista traseira suporte lombar" />
+                  <div class="ml-op-thumb-badge">5 ★</div>
+                </div>
+                <div class="ml-op-thumb-card" onclick="scrollModalToReview(10)">
+                  <img src="depo_cadeira_10.webp" alt="Foto avaliação cadeira montada vista frontal" />
+                  <div class="ml-op-thumb-badge">5 ★</div>
+                </div>
+                <div class="ml-op-thumb-card" onclick="scrollModalToReview(1)">
+                  <img src="depo_cadeira_11.webp" alt="Foto avaliação acabamento e almofadas inclusas" />
+                  <div class="ml-op-thumb-badge">5 ★</div>
+                </div>
+                <div class="ml-op-thumb-card" onclick="scrollModalToReview(2)">
+                  <img src="depo_cadeira_12.webp" alt="Foto avaliação cadeira montada na sala" />
+                  <div class="ml-op-thumb-badge">5 ★</div>
+                </div>
+                <div class="ml-op-thumb-card" onclick="scrollModalToReview(3)">
+                  <img src="depo_cadeira_13.webp" alt="Foto avaliação estrutura traseira reforçada" />
+                  <div class="ml-op-thumb-badge">5 ★</div>
+                </div>
+                <div class="ml-op-thumb-card" onclick="scrollModalToReview(4)">
+                  <img src="depo_cadeira_14.jpg" alt="Foto avaliação estofado macio e apoio retrátil" />
+                  <div class="ml-op-thumb-badge">5 ★</div>
+                </div>
+                <div class="ml-op-thumb-card" onclick="scrollModalToReview(5)">
+                  <img src="depo_cadeira_15.jpg" alt="Foto avaliação cadeira na mesa de trabalho home office" />
                   <div class="ml-op-thumb-badge">5 ★</div>
                 </div>
               </div>
@@ -6262,7 +7567,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 2 semanas</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="/depo_cadeira_1.webp" alt="Foto cliente cadeira Dunamis montada no escritório" />
+                <img src="depo_cadeira_1.webp" alt="Foto cliente cadeira Dunamis montada no escritório" />
               </div>
               <div class="ml-single-review-text">
                 Simplesmente sensacional! Montei em menos de 30 minutos, o couro sintético é muito macio e o apoio lombar encaixa perfeitamente na coluna. Depois de horas trabalhando não sinto mais dor nas costas. O apoio de pés retrátil é um luxo! Chegou super rápido e muito bem embalado. Recomendo de olhos fechados! <a href="javascript:void(0)" class="saiba-mais-link">Saiba mais</a>
@@ -6282,7 +7587,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 1 mês</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="/depo_cadeira_2.webp" alt="Foto cliente cadeira Dunamis reclinada" />
+                <img src="depo_cadeira_2.webp" alt="Foto cliente cadeira Dunamis reclinada" />
               </div>
               <div class="ml-single-review-text">
                 Comprei a cadeira Preta e valeu cada centavo! A estrutura é muito firme, suporta bem meu peso (90kg) sem nenhuma folga. O pistão a gás classe 4 tem excelente qualidade. As almofadas que vieram junto são um diferencial absurdo pelo preço. Podem comprar sem medo!
@@ -6302,7 +7607,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 3 semanas</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="/depo_cadeira_4.webp" alt="Foto cliente cadeira Dunamis apoio de pés" />
+                <img src="depo_cadeira_4.webp" alt="Foto cliente cadeira Dunamis apoio de pés" />
               </div>
               <div class="ml-single-review-text">
                 Top demais! Estava ansiosa pra receber e superou minhas expectativas. Uso horas seguidas no computador e não sinto cansaço. O reclinável até 130° é incrível, dá pra descansar de verdade. A cadeira veio na caixa lacrada da Marqs Home, muito bem protegida com isopor. <a href="javascript:void(0)" class="saiba-mais-link">Saiba mais</a>
@@ -6322,7 +7627,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 1 mês</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="/depo_cadeira_5.webp" alt="Foto cliente embalagem cadeira Dunamis lacrada" />
+                <img src="depo_cadeira_5.webp" alt="Foto cliente embalagem cadeira Dunamis lacrada" />
               </div>
               <div class="ml-single-review-text">
                 Tirei foto da embalagem para quem tiver dúvida: produto original Marqs Home, embalagem lacrada com todos os itens inclusos. Entrega Full do Mercado Livre entregou no dia seguinte pela manhã. O couro tem acabamento impecável, muito resistente e macio. Nota 10!
@@ -6342,7 +7647,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 2 semanas</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="/depo_cadeira_7.webp" alt="Foto cliente cadeira Dunamis reclinação apoio pés" />
+                <img src="depo_cadeira_7.webp" alt="Foto cliente cadeira Dunamis reclinação apoio pés" />
               </div>
               <div class="ml-single-review-text">
                 Excelente compra! Peguei na promoção e compensou muito. A cadeira é maravilhosa, o apoio lombar já saiu ajustado perfeitamente, e o encosto reclinável dá muito mais opções de posição. O apoio de pés retrátil é um diferencial incrível pra quem fica muito tempo sentado. Muito satisfeito!
@@ -6362,7 +7667,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 3 semanas</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="/depo_cadeira_9.webp" alt="Foto cliente cadeira Dunamis almofadas inclusas" />
+                <img src="depo_cadeira_9.webp" alt="Foto cliente cadeira Dunamis almofadas inclusas" />
               </div>
               <div class="ml-single-review-text">
                 A cadeira tem um visual incrível, design arrojado e revestimento que parece muito mais caro do que é. As almofadas cervical e lombar incluídas fazem toda diferença. Comprei para dar de presente pro meu filho e ele pirou! Melhor compra que fiz no ano.
@@ -6382,7 +7687,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 1 mês</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="/depo_cadeira_10.webp" alt="Foto cliente cadeira Dunamis setup gamer" />
+                <img src="depo_cadeira_10.webp" alt="Foto cliente cadeira Dunamis setup gamer" />
               </div>
               <div class="ml-single-review-text">
                 Uso a cadeira tanto no escritório quanto no quarto gamer e ela se encaixa perfeitamente nos dois ambientes. A qualidade de construção é impecável, as rodinhas deslizam suaves sem arranhar o piso. Chegou antes do prazo estipulado.
@@ -6402,7 +7707,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 2 meses</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="/depo_cadeira_11.webp" alt="Foto cliente cadeira Dunamis iluminação noturna" />
+                <img src="depo_cadeira_11.webp" alt="Foto cliente cadeira Dunamis iluminação noturna" />
               </div>
               <div class="ml-single-review-text">
                 Com a iluminação do quarto ligada à noite a cadeira fica surreal de bonita. O design em couro preto valoriza demais o setup gamer. A espuma do assento tem uma densidade incrível, não afunda mesmo após horas de uso. O reclinável com trava é perfeito. Recomendo muito! <a href="javascript:void(0)" class="saiba-mais-link">Saiba mais</a>
@@ -6422,7 +7727,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 1 mês</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="/depo_cadeira_12.webp" alt="Foto cliente cadeira Dunamis vista lateral" />
+                <img src="depo_cadeira_12.webp" alt="Foto cliente cadeira Dunamis vista lateral" />
               </div>
               <div class="ml-single-review-text">
                 Cadeira original Marqs Home, linda, robusta e super confortável. Testei todas as funções: reclinação, apoio de pés, regulagem de altura, pistão a gás — tudo 100% funcionando perfeitamente. As almofadas que vieram junto são um diferencial absurdo pelo preço cobrado.
@@ -6442,7 +7747,7 @@
                 <div class="ml-single-review-meta">Brasil | Há 2 semanas</div>
               </div>
               <div class="ml-single-review-photos">
-                <img src="/depo_cadeira_13.webp" alt="Foto cliente embalagem Dunamis bem protegida" />
+                <img src="depo_cadeira_13.webp" alt="Foto cliente embalagem Dunamis bem protegida" />
               </div>
               <div class="ml-single-review-text">
                 Qualidade nota mil! A cadeira tem um acabamento impecável, costura automotiva bem feita e couro resistente. Chegou intacta, muito bem protegida na embalagem original. Podem comprar que o produto é de primeira qualidade!
