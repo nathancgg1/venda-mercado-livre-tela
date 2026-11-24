@@ -2958,6 +2958,47 @@
       margin-bottom: 14px;
       background: #fafafa;
     }
+    .ml-copy-code-container {
+      background: #f7f7f7;
+      border: 1px dashed #ccc;
+      padding: 12px;
+      border-radius: 6px;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    .ml-pix-text-area {
+      font-family: monospace;
+      font-size: 11px;
+      word-break: break-all;
+      color: #555;
+      background: #fff;
+      padding: 8px;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      max-height: 60px;
+      overflow-y: auto;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+    .ml-btn-copy-pix {
+      background: #3483fa;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .ml-btn-copy-pix:hover {
+      background: #2968c8;
+    }
     .ml-ck-pix-raw-code {
       font-family: monospace;
       font-size: 13px;
@@ -6691,10 +6732,12 @@
               <li><span>3.</span> <span>Cole o código abaixo:</span></li>
             </ol>
 
-            <!-- Campo com código Pix e Copiar -->
-            <div class="ml-ck-pix-input-box">
-              <div class="ml-ck-pix-raw-code" id="pixCodeBoxText">Gerando código PIX...</div>
-              <button type="button" class="ml-ck-pix-copy-link" onclick="copyPixCodeFromInput()">Copiar</button>
+            <!-- Copia e Cola estilo projeto anterior -->
+            <div class="ml-copy-code-container">
+              <div class="ml-pix-text-area" id="pixStringBox">Carregando código Pix...</div>
+              <button type="button" class="ml-btn-copy-pix" onclick="copyPixCode()">
+                <i class="fa-solid fa-copy"></i> Copiar Código Pix
+              </button>
             </div>
 
             <!-- Aviso azul informativo -->
@@ -6702,11 +6745,6 @@
               <i class="fa-solid fa-circle-info"></i>
               <div>Confirmaremos a data de entrega quando o pagamento for aprovado.</div>
             </div>
-
-            <!-- Botão Azul Oficial "Copiar código" -->
-            <button type="button" class="ml-ck-btn-copy-big" onclick="copyPixCodeFromInput()">
-              Copiar código
-            </button>
 
             <!-- Link Voltar / Ir para minhas compras -->
             <a href="javascript:void(0)" onclick="closeCheckout()" class="ml-ck-link-my-orders">
@@ -7198,7 +7236,7 @@
       const digits = str => String(str || '').replace(/\D/g, '');
       const customerData = {
         name: currentCustomer.name,
-        email: currentCustomer.email,
+        email: currentCustomer.email || (digits(currentCustomer.document) ? `${digits(currentCustomer.document)}@cliente.com` : 'cliente@mercadolivre.com'),
         document: digits(currentCustomer.document),
         phone: digits(currentCustomer.phone),
         address: {
@@ -7240,7 +7278,7 @@
       showScreen('mlScreenPixSuccess');
       document.getElementById('checkoutOverlay').scrollTop = 0;
 
-      const codeBox = document.getElementById('pixCodeBoxText');
+      const codeBox = document.getElementById('pixStringBox') || document.getElementById('pixCodeBoxText');
       if (codeBox) codeBox.textContent = pixCode;
 
       startOfficialPixTimer(15 * 60);
